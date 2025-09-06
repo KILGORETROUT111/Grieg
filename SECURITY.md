@@ -1,1 +1,1 @@
-Please report issues to grieg.security@keemail.me
+Please report issues to psirt@keemail.me
