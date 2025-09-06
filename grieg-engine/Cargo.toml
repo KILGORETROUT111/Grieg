@@ -1,0 +1,11 @@
+[package]
+name = "grieg-engine"
+edition = "2021"
+version = "0.2.0"
+
+[dependencies]
+serde = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

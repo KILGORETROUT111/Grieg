@@ -1,0 +1,15 @@
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+
+program = { SOI ~ expr ~ EOI }
+expr    = { implies }
+implies = { or ~ ( "->" ~ implies )? }
+or      = { and ~ ( "|" ~ and )* }
+and     = { not ~ ( "&" ~ not )* }
+not     = { "~" ~ not | primary }
+primary = { boolean | ident | phaseop_call | "(" ~ expr ~ ")" }
+
+boolean = { "true" | "false" | "⊤" | "⊥" }
+phaseop = { "@mem" | "@jam" | "@alive" | "@vac" }
+phaseop_call = { phaseop ~ "(" ~ expr ~ ")" }
+
+ident = @{ (ASCII_ALPHA | "_") ~ (ASCII_ALPHANUMERIC | "_")* }

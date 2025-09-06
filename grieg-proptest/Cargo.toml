@@ -1,0 +1,9 @@
+[package]
+name = "grieg-proptest"
+edition = "2021"
+version = "0.2.0"
+
+[dependencies]
+proptest = { workspace = true }
+grieg-engine = { path = "../grieg-engine" }
+grieg-parser = { path = "../grieg-parser" }

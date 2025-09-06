@@ -1,0 +1,10 @@
+[package]
+name = "grieg-parser"
+edition = "2021"
+version = "0.2.0"
+
+[dependencies]
+pest = { workspace = true }
+pest_derive = { workspace = true }
+thiserror = { workspace = true }
+grieg-engine = { path = "../grieg-engine" }
