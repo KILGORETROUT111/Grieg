@@ -5,8 +5,8 @@ use std::fs::File;
 use std::io::{self, BufRead, Write};
 use std::path::Path;
 
-use grieg_engine::{ast::to_sexpr, eval::Evaluator, value::V};
 use grieg_engine::phase::Phase;
+use grieg_engine::{ast::to_sexpr, eval::Evaluator, value::V};
 use grieg_parser::parse_expr;
 
 const USAGE: &str = r#"Usage:
@@ -106,25 +106,41 @@ fn main() {
 
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--expr"   => { expr_arg = args.next(); }
-            "--repl"   => { repl = true; }
-            "--jsonl"  => { jsonl = args.next(); }
-            "--ast"    => { show_ast = true; }
-            "--mem"    => { mem_enabled = true; }
-            "--pretty" => { pretty = true; }
+            "--expr" => {
+                expr_arg = args.next();
+            }
+            "--repl" => {
+                repl = true;
+            }
+            "--jsonl" => {
+                jsonl = args.next();
+            }
+            "--ast" => {
+                show_ast = true;
+            }
+            "--mem" => {
+                mem_enabled = true;
+            }
+            "--pretty" => {
+                pretty = true;
+            }
             "--mem-db" => {
                 mem_db = args.next().or_else(|| {
                     eprintln!("error: --mem-db requires <file>\n");
                     usage(2);
                 });
             }
-            "--manifest" => { show_manifest = true; }
+            "--manifest" => {
+                show_manifest = true;
+            }
             "-h" | "--help" => usage(0),
             _ => {}
         }
     }
 
-    if show_manifest { print_manifest_and_exit(); }
+    if show_manifest {
+        print_manifest_and_exit();
+    }
 
     if let Some(path) = jsonl {
         run_jsonl(&path, show_ast, mem_enabled, pretty, &mem_db);
@@ -158,9 +174,9 @@ fn run_once(s: &str, show_ast: bool, mem_enabled: bool, pretty: bool, mem_db: &O
                 value: val,
                 phase: match r.phase {
                     Phase::ALIVE => "ALIVE",
-                    Phase::JAM   => "JAM",
-                    Phase::MEM   => "MEM",
-                    Phase::VAC   => "VAC",
+                    Phase::JAM => "JAM",
+                    Phase::MEM => "MEM",
+                    Phase::VAC => "VAC",
                 },
             };
             emit(&out, pretty);
@@ -187,7 +203,9 @@ fn run_jsonl(path: &str, show_ast: bool, mem_enabled: bool, pretty: bool, mem_db
 
     for line in reader.lines() {
         let s = line.unwrap();
-        if s.trim().is_empty() { continue; }
+        if s.trim().is_empty() {
+            continue;
+        }
         match parse_expr(&s) {
             Ok(ast) => {
                 let r = ev.eval(&ast, None);
@@ -201,9 +219,9 @@ fn run_jsonl(path: &str, show_ast: bool, mem_enabled: bool, pretty: bool, mem_db
                     value: val,
                     phase: match r.phase {
                         Phase::ALIVE => "ALIVE",
-                        Phase::JAM   => "JAM",
-                        Phase::MEM   => "MEM",
-                        Phase::VAC   => "VAC",
+                        Phase::JAM => "JAM",
+                        Phase::MEM => "MEM",
+                        Phase::VAC => "VAC",
                     },
                 };
                 emit(&out, pretty);
@@ -228,10 +246,16 @@ fn run_repl(show_ast: bool, mem_enabled: bool, pretty: bool, mem_db: &Option<Str
         print!("> ");
         io::stdout().flush().unwrap();
         buf.clear();
-        if io::stdin().read_line(&mut buf).unwrap() == 0 { break; }
+        if io::stdin().read_line(&mut buf).unwrap() == 0 {
+            break;
+        }
         let s = buf.trim();
-        if s.is_empty() { continue; }
-        if s == ":q" || s == ":quit" { break; }
+        if s.is_empty() {
+            continue;
+        }
+        if s == ":q" || s == ":quit" {
+            break;
+        }
 
         match parse_expr(s) {
             Ok(ast) => {
@@ -246,9 +270,9 @@ fn run_repl(show_ast: bool, mem_enabled: bool, pretty: bool, mem_db: &Option<Str
                     value: val,
                     phase: match r.phase {
                         Phase::ALIVE => "ALIVE",
-                        Phase::JAM   => "JAM",
-                        Phase::MEM   => "MEM",
-                        Phase::VAC   => "VAC",
+                        Phase::JAM => "JAM",
+                        Phase::MEM => "MEM",
+                        Phase::VAC => "VAC",
                     },
                 };
                 emit(&out, pretty);

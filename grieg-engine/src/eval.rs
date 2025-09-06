@@ -86,7 +86,11 @@ impl Evaluator {
                     Some(false) => V::Bool(true),
                     None => V::Unknown,
                 };
-                let phase = if v.to_bool().is_none() { Phase::VAC } else { r.phase }; // S4.6
+                let phase = if v.to_bool().is_none() {
+                    Phase::VAC
+                } else {
+                    r.phase
+                }; // S4.6
                 EvalResult { value: v, phase }
             }
 
@@ -95,7 +99,9 @@ impl Evaluator {
                 let rb = self.eval(b, None);
                 let v = and3(ra.value, rb.value); // S3.4
                 let mut phase = join(ra.phase, rb.phase); // S4.3
-                if v.to_bool().is_none() { phase = Phase::VAC; } // S4.6
+                if v.to_bool().is_none() {
+                    phase = Phase::VAC;
+                } // S4.6
                 EvalResult { value: v, phase }
             }
 
@@ -104,7 +110,9 @@ impl Evaluator {
                 let rb = self.eval(b, None);
                 let v = or3(ra.value, rb.value); // S3.5
                 let mut phase = join(ra.phase, rb.phase);
-                if v.to_bool().is_none() { phase = Phase::VAC; }
+                if v.to_bool().is_none() {
+                    phase = Phase::VAC;
+                }
                 EvalResult { value: v, phase }
             }
 
@@ -113,17 +121,31 @@ impl Evaluator {
                 let rb = self.eval(b, None);
                 let v = imp3(ra.value, rb.value); // S3.6
                 let mut phase = join(ra.phase, rb.phase);
-                if v.to_bool().is_none() { phase = Phase::VAC; }
+                if v.to_bool().is_none() {
+                    phase = Phase::VAC;
+                }
                 EvalResult { value: v, phase }
             }
 
             Expr::PhaseOp(op, x) => {
                 let r = self.eval(x, None);
                 match op {
-                    PhaseOp::Alive => EvalResult { value: r.value, phase: Phase::ALIVE }, // S3.7, S4.4
-                    PhaseOp::Jam   => EvalResult { value: r.value, phase: Phase::JAM   },   // S3.8, S4.4
-                    PhaseOp::Vac   => EvalResult { value: V::Unknown, phase: Phase::VAC }, // S3.9
-                    PhaseOp::Mem   => EvalResult { value: r.value, phase: Phase::MEM   },  // S3.10
+                    PhaseOp::Alive => EvalResult {
+                        value: r.value,
+                        phase: Phase::ALIVE,
+                    }, // S3.7, S4.4
+                    PhaseOp::Jam => EvalResult {
+                        value: r.value,
+                        phase: Phase::JAM,
+                    }, // S3.8, S4.4
+                    PhaseOp::Vac => EvalResult {
+                        value: V::Unknown,
+                        phase: Phase::VAC,
+                    }, // S3.9
+                    PhaseOp::Mem => EvalResult {
+                        value: r.value,
+                        phase: Phase::MEM,
+                    }, // S3.10
                 }
             }
         }
