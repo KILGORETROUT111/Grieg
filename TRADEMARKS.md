@@ -1,1 +1,1 @@
-“Grieg” is a trademark… permissions via hello.grieg@keemail.me
+“Grieg” is a trademark… permissions via grieg@keemail.me
