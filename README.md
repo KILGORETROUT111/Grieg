@@ -10,3 +10,8 @@ Run: cargo run -p grieg-cli -- --expr "@mem(true -> false)" --ast --mem
 - Trademark: “Grieg” (see `TRADEMARKS.md`).
 - Attribution: see `NOTICE`.
 
+
+## Lineage & Rationale
+- See **[LEE → Grieg Lineage](docs/lineage.md)** (informative).
+- Spec: `spec/SPEC.md`
+- Design ledger: `spec/LEDGER.md`
