@@ -158,3 +158,21 @@ venturi pictures remain external *views* derived from traces.
 - This document is informative; normative rules live in `spec/SPEC.md`.
 - All lineage-driven changes must be reflected in `spec/LEDGER.md`.
 - Claims of compatibility rely on the conformance suite when published.
+
+## Engine Tests (unit & property)
+
+**Unit tests**
+1. **Implication sink:** `((p -> q) & p)` marks at least one step with `sink=true`; final phase `ALIVE`, truth per table.
+2. **Double negation:** `~~A` preserves truth; with geometry on, cumulative `theta ≈ 2π (mod 2π)`.
+3. **Disjunction centrifugal:** with geometry on, `rho(A ∨ B) ≥ max(rho(A), rho(B))`; equals max when both `ALIVE`.
+4. **MEM transport:** `@mem(E)` preserves truth; phase toggles consistently between sheets; `VAC -> MEM` on witness.
+5. **VAC projection:** free identifier → `to_bool()==None` and `phase==VAC`.
+
+**Property tests (proptest)**
+- **P1 (DN-Id):** for arbitrary boolean `A`, `⟦~~A⟧ == ⟦A⟧`.  
+- **P2 (Imp-Sink Monotone):** random implication chains produce non-increasing `rho` (if emitted) and mark `sink` where MP triggers.  
+- **P3 (Or-Max):** for random boolean forms `A,B`, if both evaluate in `ALIVE`, then `rho(A∨B) == max(rho(A), rho(B))` (if emitted).  
+- **P4 (Mem-Truth):** for random `E`, `⟦@mem(E)⟧ == ⟦E⟧` while phases reflect sheet transport.  
+- **P5 (Vac-None):** any free identifier yields `to_bool()==None` and `phase==VAC`.
+
+These tests codify the ontic-manifold stance: geometry is primary; traces witness it without mutating semantics.
