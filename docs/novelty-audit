@@ -1,0 +1,25 @@
+# Grieg Novelty Audit (Week Plan)
+
+## Targets to prove
+- **Conservativity:** For phase-free formulas, Grieg ≡ CPL (truth); phases stabilize at ALIVE.
+- **Embedding (BD→Grieg):** map evidence/inconsistency strata into {ALIVE,JAM,VAC} while preserving boolean projection.
+- **Separation (no Grieg→BD compositional collapse):** contexts that detect **modus-ponens sinks**; BD/K3/LP can’t express.
+- **Trace adequacy:** I1–I5 hold on emitted traces; traces don’t affect results.
+- **Complexity:** SAT NP-complete; VAL coNP-complete (via CPL reduction/membership).
+
+## Killer example sketch
+Let `F = (p -> q) & p`. In chained contexts `(F) & (q -> r)`, Grieg marks an **MP sink** after the first implication, constraining downstream flow (I1). BD/K3/LP assign the same four-value but cannot talk about “sink occurred”.
+
+## Theorems (to drop in LaTeX)
+1. **Conservativity over CPL.**
+2. **Soundness/Completeness** of sequent system 𝑮𝒓.
+3. **Embedding + separation** wrt Belnap–Dunn.
+4. **Trace Observational Adequacy** (I1–I5).
+5. **Complexity parity** with CPL.
+
+## Mini-timeline
+- D1–2: conservativity write-up; sequent rules draft.
+- D3: embedding+separation lemma (contextuality argument).
+- D4: trace adequacy (induction on eval).
+- D5: complexity (reductions + membership).
+- D6–7: killer example; arXiv formatting; circulate to 2 seniors.
