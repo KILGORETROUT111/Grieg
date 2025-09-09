@@ -15,3 +15,9 @@ Run: cargo run -p grieg-cli -- --expr "@mem(true -> false)" --ast --mem
 - See **[LEE → Grieg Lineage](docs/lineage.md)** (informative).
 - Spec: `spec/SPEC.md`
 - Design ledger: `spec/LEDGER.md`
+
+## Papers & Funding
+- [Aims (2-page)](docs/aims.md)
+- [Novelty Audit](docs/novelty-audit.md)
+- [Main Paper (LaTeX)](docs/grieg-main.tex)
+- [Whitepaper](docs/Grieg-Whitepaper.md)
