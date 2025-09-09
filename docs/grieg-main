@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,stmaryrd}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\title{Grieg: A Four-Fold Phase Semantics on an Ontic Logical Manifold}
+\author{William A. Patterson}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Grieg augments classical truth with an ontic phase over $\{\mathsf{ALIVE},\mathsf{JAM},\mathsf{MEM},\mathsf{VAC}\}$ capturing boundary, transport, and witness on a logical manifold. We give a sequent calculus, prove conservativity over classical propositional logic on phase-free fragments, show an embedding of Belnap--Dunn with a separation (no phase-erasing compositional translation), establish NP/coNP bounds, and present a trace semantics whose invariants (sink on $\to$, $\pi$ rotation on $\neg$, etc.) are observational and do not alter results.
+\end{abstract}
+
+\section{Syntax}
+Atoms $p\in\mathcal{P}$; connectives $\neg,\wedge,\vee,\to$; phase operators $\mathsf{@mem}(\cdot)$, $\mathsf{@jam}(\cdot)$, $\mathsf{@vac}(x)$, $\mathsf{@alive}(\cdot)$.
+
+\section{Semantics}
+Truth values $V=\{0,1,\bot\}$; phases $P=\{\mathsf{ALIVE},\mathsf{JAM},\mathsf{MEM},\mathsf{VAC}\}$. A model $\mathcal{M}=\langle W,\nu,\phi\rangle$ with boolean evaluation $\llbracket\cdot\rrbracket_w:\mathrm{Form}\to V$ (classical on defined points) and phase map $\phi:\mathrm{Form}\times W\to P$ satisfying invariants: negation rotates on the factual sheet, disjunction is centrifugal with boundary short-circuit, implication has a monotone radial sink under modus ponens, $\mathsf{@mem}$ transports between sheets, $\mathsf{@vac}$ projects to counterfactual where witness is absent.
+
+\section{Proof System $\mathbf{G\!r}$}
+Classical propositional rules; admissible phase rules enforcing invariants without changing boolean projection.
+
+\begin{theorem}[Conservativity over CPL]
+For every phase-free formula $F$, $F$ is valid in Grieg iff $F$ is valid in classical propositional logic.
+\end{theorem}
+\begin{proof}[Sketch]
+Define projection $\pi:(v,p)\mapsto v$. By structural induction, truth-clauses coincide with CPL and no phase operator is present to produce non-$\mathsf{ALIVE}$ on closed formulas; hence $\pi(\llbracket F\rrbracket)=\llbracket F\rrbracket_{\mathrm{CPL}}$.
+\end{proof}
+
+\begin{theorem}[Embedding + Separation vs Belnap--Dunn]
+There exists a translation $E:\mathsf{FOUR}\to$ Grieg preserving boolean projection. However, there is no compositional translation $T$ from Grieg to $\mathsf{FOUR}$ that preserves satisfaction and context-equivalence while erasing phases.
+\end{theorem}
+\begin{proof}[Idea]
+Map BD's `both/neither` strata into $\mathsf{JAM}/\mathsf{VAC}$ with matching boolean projection. For separation, build contexts $C[\_]$ where Grieg distinguishes formulas that differ only by an \emph{operational sink} (licensed modus ponens) while BD assigns the same four-value because it is extensional and phase-blind. Compositionality of $T$ would force $C[T(F_1)]=C[T(F_2)]$, contradicting Grieg's distinction.
+\end{proof}
+
+\section{Trace Semantics}
+Define per-step records with $(\mathrm{op},\mathrm{pre},\mathrm{post},\mathrm{sink},\mathrm{jam},\theta,\rho)$. Prove observational adequacy (I1–I5) by induction on evaluation.
+
+\section{Complexity}
+SAT(Grieg) is NP-complete and VAL(Grieg) is coNP-complete by reduction from/to CPL and polynomial verification of local phase constraints.
+
+\section{Implementation \& Tests}
+Reference Rust engine; property tests for I1–I5; traces are feature-gated and semantics-preserving.
+
+\bibliographystyle{plain}
+\bibliography{grieg}
+\end{document}
