@@ -80,3 +80,92 @@ TraceStep {
   theta: Option<f32>,  // radians
   rho:   Option<f32>   // arbitrary units
 }
+```
+
+- **Conservativity:** Traces do **not** affect semantics. They are observational witnesses only.
+- **Extensibility:** Future traces may add `sheet: "F"|"C"` without altering results.
+
+---
+
+## 6. Sheets (F:C), Transport, and Sinks
+
+Grieg evaluates on an **ontic two-sheet manifold**:
+
+- **F** — factual sheet (default starting sheet).  
+- **C** — counterfactual sheet (unwitnessed / what-if).
+
+Each sheet is modeled as a **solid torus** `Σ = S¹ × D²` with angles `(theta, phi)` and a **radial potential** `rho ∈ [0,1]`.
+- `rho = 0` ⇒ **core** (fixed-point / sink).  
+- `rho = 1` ⇒ **boundary** (contact marks **JAM**).
+
+### 6.1 Judgment form
+
+Big-step evaluation:
+
+```
+<sheet, phase> |- E  ==>  (value, phase', sheet')
+```
+
+where:
+- `sheet ∈ {F, C}`
+- `phase ∈ {ALIVE, JAM, MEM, VAC}`
+- `value ∈ {true, false, null}` with `null = "no total boolean"`
+
+### 6.2 Operators and motion
+
+- `@vac(x)` — **projection to C (no witness)**  
+  Result: `value = null`, `phase = VAC`, `sheet = C`. We use the shorthand **F:C** for “leave F for C”.
+
+- `@mem(E)` — **transport between sheets, truth-preserving**  
+  Evaluate `E` on the opposite sheet with `phase = MEM`, **preserve** the boolean `value`, then return to the caller’s sheet. Transport changes sheet/phase, **not** truth.
+
+- `@jam(E)`, `@alive(E)` — mark the phase channel during evaluation; sheet unchanged.
+
+### 6.3 Implication and F-local sinks
+
+On **F**, once the antecedent of `E1 -> E2` is established, the chain flows inward (`rho` decreases) and may mark a **modus-ponens sink** at the core. Along implication chains on **F**, `rho` is **monotone non-increasing** (Lyapunov).  
+On **C**, **no sinks are registered**.
+
+### 6.4 Toroidal dynamics (on F)
+
+- **Negation** `~A` — classical truth; **rotation**: `theta := theta + pi (mod 2*pi)`.
+- **Conjunction** `A & B` — **inward**: `rho(A & B) = min(rho(A), rho(B))`.
+- **Disjunction** `A | B` — **centrifugal**: `rho(A | B) = max(rho(A), rho(B))`; boundary contact (`rho = 1`) marks **JAM** and short-circuits.
+- **Implication** `A -> B` — truth via `(~A) | B`, plus F-local sink behavior above.
+
+### 6.5 Invariants (restated)
+
+- `rho` never increases along implication on **F**; sinks at `rho = 0`.
+- `rho = 1` iff `phase = JAM` (boundary contact).
+- `~~A` preserves truth; net rotation on `theta` is `2*pi (mod 2*pi)`.
+- `@mem` preserves boolean value and local coordinates; only sheet/phase change.
+- `value = null` iff `phase = VAC` (no witness ⇒ counterfactual sheet).
+
+### 6.6 Implementation note (current engine)
+
+- “On C” is represented by `phase = VAC` with `value = null`.  
+- “On F” has a definite boolean (`true`/`false`) with `phase ∈ {ALIVE, JAM, MEM}`.
+- Future trace output may add an explicit `sheet: F|C` field; semantics remain unchanged.
+
+### 6.7 Examples
+
+- `@vac(x)`  →  `value = null`, `phase = VAC`, `sheet = C`.  
+- `@mem(true -> false)`  →  `value = false`, transient `phase = MEM`, returns to caller’s sheet (**F**).  
+- `(x & true) -> y` with `x` unwitnessed  →  `x` projects to **C**; no sink on **F** unless `y` re-establishes a factual path.
+
+> **Canonical toroidal definition.**  
+> Each sheet (F factual, C counterfactual) is a **solid torus** `Σ = S¹ × D²` with angles `(theta, phi)` and radial potential `rho`. Negation rotates `theta`; conjunction pulls inward via `min`; disjunction pushes outward via `max` with JAM at `rho = 1`. On **F**, implication chains admit **modus-ponens sinks** at `rho = 0`; sinks are F-local. `@vac` projects to **C`** (witness absence); `@mem` transports **F ⇄ C** while preserving truth.
+
+---
+
+## 7. Notes on Conservativity
+
+Restricted to **F** and excluding phase operators, Grieg’s boolean projection is conservative over classical propositional logic. Phase/sheet structure is observational and does not alter classical consequences.
+
+---
+
+## 8. Licensing
+
+- Engine/runtime: **MIT**.  
+- Documentation/specs: **CC-BY 4.0**.
+
