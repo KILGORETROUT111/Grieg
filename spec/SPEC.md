@@ -28,5 +28,26 @@ Let `⟦·⟧` be truth, `ϕ(·)` be phase.
 
 ## 4. Trace Schema (feature-gated, no behavioral change)
 
+## Sheets (F:C) — Ontic Two-Sheet Toroidal Manifold
+
+Each sheet is a **solid torus** Σ = S¹ × D² with angles (θ, φ) and radial potential ρ ∈ [0,1].
+- **F** factual sheet (default); **C** counterfactual sheet (unwitnessed / what-if).
+
+**Operators & motion**
+- `@vac(x)`: projection to **C** (no witness) ⇒ boolean `None`, phase `VAC`.
+- `@mem(E)`: transport **F ⇄ C** (truth-preserving); evaluates `E` on the opposite sheet with phase `MEM`, then returns to caller’s sheet.
+- `@jam(E)`, `@alive(E)`: mark the phase channel; sheet unchanged.
+
+**Toroidal dynamics (on F)**
+- Negation: θ ← θ + π (mod 2π).  
+- Conjunction: ρ(A ∧ B) = min(ρ(A), ρ(B)) (inward).  
+- Disjunction: ρ(A ∨ B) = max(ρ(A), ρ(B)) (centrifugal); boundary ρ=1 marks `JAM`.  
+- Implication: truth as ¬A ∨ B, with **modus-ponens sink** on F when antecedent holds; along implication chains ρ is **non-increasing**. Sinks are F-local (never on C).
+
+**Engine convention (current build)**
+- “On C” is reflected by `phase = VAC` with `value = null`.  
+- “On F” has definite boolean with `phase ∈ {ALIVE, JAM, MEM}`. (Trace may later emit `sheet: F|C` without changing semantics.)
+
+
 When `emit_geometry` is enabled, the engine MAY emit per-step records:
 
