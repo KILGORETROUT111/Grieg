@@ -8,7 +8,7 @@ Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this
 - **Sheets:** factual sheet **F** (torus / “rest energy”) and counterfactual sheet **C** (orthogonal fiber).
 - **Transport:** `MEM` transports between **F ↔ C`; `VAC` is projection into **C** when a witness is absent.
 
-##2. Torus-agnostic core semantics
+## 2. Torus-agnostic core semantics
 
 Evaluation returns a classical value paired with an operational phase:
 \[
