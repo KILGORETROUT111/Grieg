@@ -14,8 +14,15 @@ Evaluation returns a classical value paired with an operational phase:
 \[
 \llbracket E \rrbracket = (v,\phi),\quad
 v \in \{\text{true},\text{false}\}\cup\{\text{None}\},\;
-\phi \in \{\text{ALIVE},\text{JAM},\text{MEM},\text{VAC}\}.
-\]
+\phi \in \{\text{ALIVE},\text{JAM},\text{MEM},\text{Evaluation returns a classical value paired with an operational phase:
+
+$$
+\llbracket E \rrbracket = (v,\phi),\quad
+v \in \{\texttt{true},\ \texttt{false}\}\cup\{\texttt{None}\},\quad
+\phi \in \{\texttt{ALIVE},\ \texttt{JAM},\ \texttt{MEM},\ \texttt{VAC}\}.
+$$
+
+
 
 - **Values.** `None` = no witness; pairs with `VAC`.
 - **Phases.** Operational modes; they do not alter classical truth on ground terms.
