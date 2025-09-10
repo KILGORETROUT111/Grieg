@@ -4,20 +4,29 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'docs/**'
-      - '.github/workflows/paper.yml'
+      - "docs/**"
+      - ".github/workflows/paper.yml"
   workflow_dispatch:
 
 jobs:
-  build:
+  build-pdf:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: tectonic-typesetting/setup-tectonic@v3
-      - name: Compile LaTeX
-        run: tectonic docs/grieg-main.tex --keep-intermediates --reruns 0
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Tectonic fetches TeX packages on demand; no TeX Live install needed.
+      - name: Setup Tectonic
+        uses: tectonic-typesetting/setup-tectonic@v2
+
+      - name: Compile grieg-main.tex
+        run: |
+          mkdir -p docs/build
+          tectonic -X compile docs/grieg-main.tex --outdir docs/build
+
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: grieg-main-pdf
-          path: docs/grieg-main.pdf
+          path: docs/build/grieg-main.pdf
+          if-no-files-found: error
