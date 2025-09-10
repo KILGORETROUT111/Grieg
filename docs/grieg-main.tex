@@ -23,6 +23,37 @@ Atoms $p\in\mathcal{P}$; connectives $\neg,\wedge,\vee,\to$; phase operators $\m
 \section{Semantics}
 Truth values $V=\{0,1,\bot\}$; phases $P=\{\mathsf{ALIVE},\mathsf{JAM},\mathsf{MEM},\mathsf{VAC}\}$. A model $\mathcal{M}=\langle W,\nu,\phi\rangle$ with boolean evaluation $\llbracket\cdot\rrbracket_w:\mathrm{Form}\to V$ (classical on defined points) and phase map $\phi:\mathrm{Form}\times W\to P$ satisfying invariants: negation rotates on the factual sheet, disjunction is centrifugal with boundary short-circuit, implication has a monotone radial sink under modus ponens, $\mathsf{@mem}$ transports between sheets, $\mathsf{@vac}$ projects to counterfactual where witness is absent.
 
+
+\subsection{Sheets (F:C), Transport, and Sinks}
+Each sheet is a solid torus $\Sigma = S^1 \times D^2$ with angles $(\theta,\varphi)$ and radial potential $\rho \in [0,1]$.
+We evaluate on two ontic sheets: $\mathbf{F}$ (factual) and $\mathbf{C}$ (counterfactual).
+
+Judgments:
+\[
+  \langle s,\phi \rangle \;\vdash\; E \Downarrow (v,\phi',s')
+\]
+with $s \in \{\mathbf{F},\mathbf{C}\}$, $\phi \in \{\mathsf{ALIVE},\mathsf{JAM},\mathsf{MEM},\mathsf{VAC}\}$,
+and $v \in \{\mathsf{true},\mathsf{false},\bot\}$ ($\bot =$ no total boolean).
+
+\paragraph{VAC projection.}
+\[
+\frac{}{ \langle s,\phi \rangle \vdash @\!vac(x) \Downarrow (\bot,\mathsf{VAC},\mathbf{C}) }.
+\]
+
+\paragraph{MEM transport (truth-preserving).}
+Let $\overline{s}$ be the opposite sheet. Then
+\[
+\frac{ \langle \overline{s},\mathsf{MEM} \rangle \vdash E \Downarrow (v,\phi_1,\overline{s}) }
+     { \langle s,\phi \rangle \vdash @\!mem(E) \Downarrow (v,\mathsf{MEM},s) }.
+\]
+
+\paragraph{Implication and F-local sinks.}
+On $\mathbf{F}$, if the antecedent is established, implication chains flow toward the core ($\rho \downarrow 0$) and may mark a \emph{sink} (absorbing point).
+On $\mathbf{C}$, sinks are never registered.
+
+\paragraph{Conservativity.}
+Restricted to $\mathbf{F}$ without phase operators, the boolean projection agrees with CPL; sheet/phase are observational structure.
+
 \section{Proof System $\mathbf{G\!r}$}
 Classical propositional rules; admissible phase rules enforcing invariants without changing boolean projection.
 
