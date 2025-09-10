@@ -19,5 +19,6 @@ Run: cargo run -p grieg-cli -- --expr "@mem(true -> false)" --ast --mem
 ## Papers & Funding
 - [Aims (2-page)](docs/aims.md)
 - [Novelty Audit](docs/novelty-audit.md)
-- [Main Paper (LaTeX)](docs/grieg-main.tex)
+- [Main Paper LaTeX (LaTeX)](docs/grieg-main.tex)
+- [Main Paper PDF (PDF)](docs/grieg-main.pdf)
 - [Whitepaper](docs/Grieg-Whitepaper.md)
