@@ -1,0 +1,8 @@
+true
+false
+true -> false
+~false & (true | false)
+@mem(true -> false)
+@jam(true & true)
+@vac(x)
+(x & true) -> y

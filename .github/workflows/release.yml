@@ -1,0 +1,39 @@
+name: release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release -p grieg-cli
+      - name: Package artifact
+        run: |
+          set -eu
+          BIN="grieg-cli"
+          case "${{ runner.os }}" in
+            Windows) OUT="${BIN}-windows-x86_64.exe"; cp target/release/${BIN}.exe "$OUT" ;;
+            macOS)   OUT="${BIN}-macos-universal";   cp target/release/${BIN} "$OUT" ;;
+            Linux)   OUT="${BIN}-linux-x86_64";      cp target/release/${BIN} "$OUT" ;;
+          esac
+          echo "OUT=$OUT" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.OUT }}
+          path: ${{ env.OUT }}
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: dist }
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/**/*
