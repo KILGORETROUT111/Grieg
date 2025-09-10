@@ -11,18 +11,8 @@ Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this
 ## 2. Torus-agnostic core semantics
 
 Evaluation returns a classical value paired with an operational phase:
-\[
-\llbracket E \rrbracket = (v,\phi),\quad
-v \in \{\text{true},\text{false}\}\cup\{\text{None}\},\;
-\phi \in \{\text{ALIVE},\text{JAM},\text{MEM},\text{Evaluation returns a classical value paired with an operational phase:
 
-$$
-\llbracket E \rrbracket = (v,\phi),\quad
-v \in \{\texttt{true},\ \texttt{false}\}\cup\{\texttt{None}\},\quad
-\phi \in \{\texttt{ALIVE},\ \texttt{JAM},\ \texttt{MEM},\ \texttt{VAC}\}.
-$$
-
-
+`⟦E⟧ = (v, φ)` where `v ∈ {true,false} ∪ {None}` and `φ ∈ {ALIVE,JAM,MEM,VAC}`.
 
 - **Values.** `None` = no witness; pairs with `VAC`.
 - **Phases.** Operational modes; they do not alter classical truth on ground terms.
