@@ -13,7 +13,7 @@ Run: cargo run -p grieg-cli -- --expr "@mem(true -> false)" --ast --mem
 
 ## Lineage & Rationale
 - See **[LEE → Grieg Lineage](docs/lineage.md)** (informative).
-- Spec: `spec/SPEC.md`
+- Spec: https://github.com/KILGORETROUT111/Grieg/blob/main/spec/SPEC.md
 - Design ledger: `spec/LEDGER.md`
 
 ## Papers & Funding
