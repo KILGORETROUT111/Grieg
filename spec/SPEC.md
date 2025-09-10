@@ -33,7 +33,26 @@ Evaluation returns a classical value paired with an operational phase:
 
 > Geometry (angles/“sheets”) is **optional** trace data. Enabling it must not change any truth result.
 
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grieg Trace Step",
+  "type": "object",
+  "required": ["op", "pre", "post"],
+  "properties": {
+    "op": {
+      "type": "string",
+      "enum": ["not","and","or","implies","@mem","@jam","@vac","@alive","ident"]
+    },
+    "pre": { "type": "string", "enum": ["ALIVE","JAM","MEM","VAC"] },
+    "post": { "type": "string", "enum": ["ALIVE","JAM","MEM","VAC"] },
+    "sink": { "type": "boolean", "default": false },
+    "sheet": { "type": "string", "enum": ["F","C"], "nullable": true },
+    "theta": { "type": "number", "nullable": true },
+    "rho":   { "type": "number", "nullable": true },
+    "note":  { "type": "string" }
+  },
+  "additionalProperties": false
+}
 
 ## 3. Semantic Clauses (truth & phase)
 
