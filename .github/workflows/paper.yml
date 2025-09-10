@@ -1,0 +1,23 @@
+name: Build Grieg paper (PDF)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/paper.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: tectonic-typesetting/setup-tectonic@v3
+      - name: Compile LaTeX
+        run: tectonic docs/grieg-main.tex --keep-intermediates --reruns 0
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: grieg-main-pdf
+          path: docs/grieg-main.pdf
