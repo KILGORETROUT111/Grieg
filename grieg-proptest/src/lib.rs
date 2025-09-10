@@ -56,3 +56,32 @@ mod props {
         assert_eq!(r.value.to_bool(), Some(true));
     }
 }
+
+
+#[test]
+fn mem_transport_preserves_truth() {
+    use grieg_engine::{eval::Evaluator, value::V};
+    use grieg_parser::parse_expr;
+
+    let mut ev = Evaluator::new(true); // mem enabled
+    for s in &["true", "false", "~false & (true | false)"] {
+        let e = parse_expr(s).unwrap();
+        let r0 = ev.eval(&e, None);
+        let e_mem = parse_expr(&format!("@mem({})", s)).unwrap();
+        let r1 = ev.eval(&e_mem, None);
+        assert_eq!(r0.value.to_bool(), r1.value.to_bool(), "MEM must preserve boolean truth");
+    }
+}
+
+#[test]
+fn vac_projects_to_counterfactual() {
+    use grieg_engine::{eval::Evaluator, phase::Phase};
+    use grieg_parser::parse_expr;
+
+    let mut ev = Evaluator::new(true);
+    let e = parse_expr("@vac(x)").unwrap();
+    let r = ev.eval(&e, None);
+    assert!(r.value.to_bool().is_none(), "VAC => no total boolean");
+    assert_eq!(r.phase, Phase::VAC, "VAC phase marks counterfactual sheet");
+}
+
