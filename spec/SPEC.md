@@ -14,6 +14,10 @@ Evaluation returns a classical value paired with an operational phase:
 
 `⟦E⟧ = (v, φ)` where `v ∈ {true,false} ∪ {None}` and `φ ∈ {ALIVE,JAM,MEM,VAC}`.
 
+Evaluation returns `(value, phase)` where:
+- `value` is one of `true`, `false`, or `None` (no witness)
+- `phase` is one of `ALIVE`, `JAM`, `MEM`, `VAC`
+
 - **Values.** `None` = no witness; pairs with `VAC`.
 - **Phases.** Operational modes; they do not alter classical truth on ground terms.
 
