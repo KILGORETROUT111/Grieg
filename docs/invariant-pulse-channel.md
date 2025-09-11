@@ -5,7 +5,7 @@ This note describes the optional event stream that Grieg can emit. Events are **
 ## Event definitions
 
 - **Winding**  
-  **Trigger:** cumulative angular advance on the factual sheet completes a full turn (Δθ crosses \(2\pi\cdot k\), \(k \in \mathbb{N}\)).  
+  **Trigger:** cumulative angular advance on the factual sheet:  a complete angular circuit on the factual sheet (Δθ crosses 2π·k for some integer k ≥ 1.
   **Semantics:** topological circuit count. *(Requires geometry emission.)*
 
 - **Sink**  
