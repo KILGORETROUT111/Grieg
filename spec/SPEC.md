@@ -11,7 +11,21 @@
 Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this manifold; traces are operational witnesses of that motion.
 
 - **Phase chart (intrinsic coordinates):** `ALIVE`, `JAM`, `MEM`, `VAC`.
-- **Sheets:** factual sheet **F** (torus / “rest energy”) and counterfactual sheet **C** (orthogonal fiber).
+- ### Sheets (topological, not physical)
+
+- **Factual sheet (F):** the **equilibrium torus / invariant set** on which evaluation proceeds when witnesses are present. “Torus” here is a **topological shape of the evaluation flow** (when geometry emission is enabled), not a claim about physical energy.
+- **Counterfactual sheet (C):** an **orthogonal fiber** carrying hypothetical continuations when a required witness is absent.
+
+**Transport & markers**
+- `@mem(E)` transports between F ↔ C **without** changing truth; it changes which sheet the continuation lives on.
+- `@vac(x)` projects to **C** and marks `x` as **VAC** (no witness).
+- `@jam(E)` marks **boundary/forbiddenness** (JAM) on whichever sheet the evaluation currently occupies.
+- `@alive(E)` evaluates on **F** and marks phase as **ALIVE**.
+
+**Rationale**
+- On **F**, identifiers can resolve (witness available); on **C**, unresolved identifiers remain **VAC** until transported or witnessed.
+- The sheet structure cleanly separates **factual** from **counterfactual** computation while keeping truth conditions conservative.
+
 - **Transport:** `MEM` transports between **F ↔ C`; `VAC` is projection into **C** when a witness is absent.
 
 ## 2. Torus-agnostic core semantics
