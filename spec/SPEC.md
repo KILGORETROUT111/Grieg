@@ -13,8 +13,9 @@ Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this
 - **Phase chart (intrinsic coordinates):** `ALIVE`, `JAM`, `MEM`, `VAC`.
 - ### Sheets (topological, not physical)
 
-- **Factual sheet (F):** the **equilibrium torus / invariant set** on which evaluation proceeds when witnesses are present. “Torus” here is a **topological shape of the evaluation flow** (when geometry emission is enabled), not a claim about physical energy.
-- **Counterfactual sheet (C):** an **orthogonal fiber** carrying hypothetical continuations when a required witness is absent.
+- **Factual sheet (F):** the **invariant set of the evaluation flow** used when witnesses are present. “Torus” refers to an optional **topological representation of that flow** (when geometry emission is enabled) and is **physically non-committal**.
+
+- **Counterfactual sheet (C):** an **orthogonal fiber** carrying hypothetical continuations when a required witness is absent; evaluation may transport between F and C without changing truth.
 
 ### Dynamics on the sheets (optional geometry; non-normative)
 
