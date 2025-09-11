@@ -1,5 +1,11 @@
 # Grieg Spec — Ontology, Semantics, Trace
 
+> **Scope (v0.2 “Semantics Freeze”)**
+> - **In-scope:** basis5 four-fold phases (ALIVE/JAM/MEM/VAC), implication sink, VAC witness behavior, MEM transport F↔C, CLI eval + REPL, JSONL batch, minimal AST print, property tests for dominance/implication.
+> - **Optional (feature-gated, off by default):** geometry emission, invariant event emitter (winding/sink/boundary/transport/witness).
+> - **Out of scope (v0.2):** solver heuristics, external KBs, network interfaces, GUI/visualizers, non-Rust bindings.
+> - **Compatibility:** AST/CLI options may change between v0.2→v0.3; semantics are stable except explicit TODOs marked “SpecRef: TBD”.
+
 ## 1. Ontology and Coordinates (basis5 / four-fold)
 
 Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this manifold; traces are operational witnesses of that motion.
