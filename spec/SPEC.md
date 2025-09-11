@@ -16,6 +16,19 @@ Grieg treats the logical manifold as **ontic**. Evaluation enacts motion on this
 - **Factual sheet (F):** the **equilibrium torus / invariant set** on which evaluation proceeds when witnesses are present. “Torus” here is a **topological shape of the evaluation flow** (when geometry emission is enabled), not a claim about physical energy.
 - **Counterfactual sheet (C):** an **orthogonal fiber** carrying hypothetical continuations when a required witness is absent.
 
+### Dynamics on the sheets (optional geometry; non-normative)
+
+If geometry emission is enabled, we track a polar chart `(θ, ρ)` on the sheet:
+
+- **Implication** `A → B`: evaluation is **centripetal** along the chain: `ρ` is non-increasing until a **sink** (modus-ponens fixed point) is reached. (Invariant I1).
+- **Disjunction** `A ∨ B`: evaluation is **centrifugal**: `ρ(A ∨ B) = max(ρ(A), ρ(B))`. JAM on a branch short-circuits and marks a boundary.
+- **Negation** `¬A`: reflects angle on the same sheet: `Δθ ≡ π (mod 2π)`. Double negation composes to identity on **F**.
+- **MEM transport** `@mem(E)`: switches sheet **F ↔ C** but preserves `(v, θ, ρ)`; only the **sheet** label changes.
+- **VAC rule**: `to_bool() == None ⇒ phase = VAC` and the continuation lives on **C**.
+
+*These geometric signals are observational only (for traces/visualization) and do not alter truth or phase rules.*
+
+
 **Transport & markers**
 - `@mem(E)` transports between F ↔ C **without** changing truth; it changes which sheet the continuation lives on.
 - `@vac(x)` projects to **C** and marks `x` as **VAC** (no witness).
