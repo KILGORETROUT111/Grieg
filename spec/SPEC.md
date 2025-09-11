@@ -48,6 +48,21 @@ Let `⟦·⟧` be truth, `ϕ(·)` be phase.
 - **Identifiers:** without binding/witness, `ϕ = VAC`, `⟦·⟧ = ⊥/None` (no total boolean).
 - **Phase operators:** `@mem(E)`, `@jam(E)`, `@vac(x)`, `@alive(E)` set/mark the phase channel and evaluate `E` accordingly.
 
+## Observability (Optional)
+
+### Invariant Event Emitter (optional, non-interfering)
+
+When enabled, Grieg emits a stream of **invariant events** that are fully determined by the core basis5 semantics and do **not** alter evaluation:
+
+- **Winding** — a complete angular circuit on the factual sheet (Δθ crosses \(2\pi\cdot k\); requires geometry emission).
+- **Sink** — first entry into a modus-ponens fixed point along an implication (→) chain.
+- **Boundary (JAM)** — transition into JAM (manifold boundary / forbiddenness).
+- **Transport (MEM)** — sheet exchange \(F \leftrightarrow C\) under `@mem(·)`.
+- **Witness** — identifier resolves **VAC → ALIVE** (witness arrival).
+
+**Non-interference:** This emitter is a read-only projection of the evaluation trace; enabling it never changes truth values or phases. It exists for reproducible profiling, replay, and visualization and is disabled by default.
+
+
 ## 4. Invariants (geometry/phase)
 
 - **I1 Sink (Implication):** along an implication chain, radial coordinate `ρ` is non-increasing; sinks are absorbing.
