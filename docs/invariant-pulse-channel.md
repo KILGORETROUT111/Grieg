@@ -17,7 +17,7 @@ This note describes the optional event stream that Grieg can emit. Events are **
   **Semantics:** manifold boundary / forbiddenness (short-circuit).
 
 - **Transport (MEM)**  
-  **Trigger:** sheet exchange \(F \leftrightarrow C\) under `@mem(·)`.  
+  **Trigger:** sheet exchange F  → C under `@mem(·)`.  
   **Semantics:** moves evaluation between factual and counterfactual sheets without changing truth.
 
 - **Witness**  
