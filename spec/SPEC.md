@@ -1,3 +1,11 @@
+**Lineage (modal/deontic):** The engine’s operator discipline follows a
+Berkeley line via **Julian C. Boyd**: modality analyzed at multiple levels
+(form/type, speech-act force, norm systems) and disciplined by sentence-level
+diagnostics. Grieg adopts that stance: logical operators are operational
+primitives; phase/geometry is internal to evaluation rather than borrowed
+from external physical analogies.
+
+
 # Grieg Spec — Ontology, Semantics, Trace
 
 > **Scope (v0.2 “Semantics Freeze”)**
