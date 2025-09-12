@@ -6,6 +6,24 @@ status: "informative"
 last_updated: "2025-09-07"
 ---
 
+## Berkeley line: Julian C. Boyd (logic of modality & syntax–semantics)
+
+Grieg’s operator discipline descends from **Julian C. Boyd** (UC Berkeley), a
+logician and “philosophical grammarian” who worked at the seam of **modal logic,
+deontic reasoning, and the syntax–semantics interface**. Beyond classroom
+sketches of the deontic square, Boyd treated modality as a *layered* phenomenon:
+(1) surface operators and their compositional types, (2) speech-act force and
+illocutionary profile, and (3) background **norm systems**. That multi-level
+analysis directly informs Grieg’s four-phase operational semantics.
+
+Boyd was also a rare expert reader of **Chomsky’s _Syntactic Structures_**
+and adjacent program; his diagnostics for English modals (e.g., *must, may,
+ought*) and his editorial work in speech-act theory shaped a generation’s
+standards for sentence-level logical analysis. We acknowledge this lineage
+explicitly: Grieg treats operators as *logical primitives tied to use*, and
+lets geometry/phase be internal to the evaluation engine rather than imported
+from physics metaphors.
+
 # LEE → Grieg Lineage
 
 This document captures the *canonical lineage* from LEE to Grieg and maps
