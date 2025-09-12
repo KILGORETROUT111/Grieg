@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grieg Dive Analyzer Event Log",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "dive_id": { "type": "string" },
+        "device": { "type": "string" },
+        "firmware": { "type": "string" },
+        "rulepack_id": { "type": "string" },
+        "rulepack_hash": { "type": "string" },
+        "kernel_hash": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" }
+      },
+      "required": ["dive_id","rulepack_id","generated_at"]
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t_ms": { "type": "integer" },
+          "depth_m": { "type": "number" },
+          "phase": { "enum": ["ALIVE","JAM","MEM","VAC"] },
+          "kind": { "enum": ["BOUNDARY","SINK","WITNESS","INFO"] },
+          "rule_id": { "type": "string" },
+          "message": { "type": "string" },
+          "extras": { "type": "object" }
+        },
+        "required": ["t_ms","phase","kind","rule_id"]
+      }
+    },
+    "what_if": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": { "type": "string" },
+          "deltas": {
+            "type": "object",
+            "properties": {
+              "tts_s": { "type": "integer" },
+              "ndl_s": { "type": "integer" },
+              "stops": { "type": "string" }
+            }
+          }
+        },
+        "required": ["scenario","deltas"]
+      }
+    }
+  },
+  "required": ["meta","events"]
+}
