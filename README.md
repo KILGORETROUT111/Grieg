@@ -1,6 +1,6 @@
 **Lineage:** Operator discipline traces to Julian C. Boyd’s Berkeley program
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
-sensitive semantics and probabilistic/operational views.
+sensitive semantics and probabilistic / operational views.
 
 # Grieg — Reasoning Engine (Scaffold v2)
 Four-fold phases: ALIVE, JAM, MEM, VAC. Dominance: JAM > MEM > VAC > ALIVE.
