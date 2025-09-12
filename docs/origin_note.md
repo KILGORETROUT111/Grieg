@@ -1,4 +1,4 @@
-# Origin Note: Supremely Evolved Background Theory  
+# Origin Note: "Supremely Evolved Background Theory"
 
 Grieg’s lineage can be traced to an idea I once called a **“supremely evolved background theory.”**  
 The phrase described the attempt to surface and rebuild the tacit assumptions that underlie reasoning itself. Traditional AI engines rely on heuristics, probability mandates, and compensating errors — an *unsafe substrate* for inference. Grieg was conceived as the counterpoint: a system where reasoning is not heuristic but **phase-verified** through the VAC → ALIVE → JAM → MEM cycle.  
