@@ -8,7 +8,7 @@ Small, copy-pasteable snippets that exercise **Grieg** via the CLI. These exampl
 
 > If you're new here, start with **[counterfactuals.md](./counterfactuals.md)**.
 
-## How to run (when at your laptop)
+## How to run
 
 From repo root:
 
