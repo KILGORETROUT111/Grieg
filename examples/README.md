@@ -5,7 +5,7 @@ These examples are designed to be readable on mobile and runnable on a laptop wi
 
 
 ### Examples
-See examples/ for copy-pasteable CLI snippets
+See examples/ phase-schematics-set.md for copy-pasteable CLI runs
 
 - ✅ No extra crates needed  
 - ✅ Works with `grieg-cli`  
