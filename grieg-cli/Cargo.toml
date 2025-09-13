@@ -1,13 +1,13 @@
 [package]
 name = "grieg-cli"
-edition = "2021"
 version = "0.2.0"
+edition = "2021"
 
 [dependencies]
-serde = { workspace = true }
-serde_json = { workspace = true }
+serde        = { workspace = true }
+serde_json   = { workspace = true }
 grieg-engine = { path = "../grieg-engine" }
 grieg-parser = { path = "../grieg-parser" }
 
-[dependencies]
-grieg-engine = { path = "../grieg-engine", features = ["emit_geometry"] }
+[features]
+emit_geometry = []
