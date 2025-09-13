@@ -11,8 +11,6 @@ See examples/ for copy-pasteable CLI snippets
 - ✅ Works with `grieg-cli`  
 - ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
-If you're new here, start with examples/ counterfactuals.md
-
 ## How to run
 
 From repo root:
