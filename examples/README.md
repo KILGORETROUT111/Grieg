@@ -5,7 +5,7 @@ These examples are designed to be readable on mobile and runnable on a laptop wi
 
 
 ### Examples
-See **[`examples/`](examples/)** for copy-pasteable CLI snippets, starting with  
+See examples/ for copy-pasteable CLI snippets, starting with  
 [`counterfactuals.md`](examples/counterfactuals.md).
 
 - ✅ No extra crates needed  
