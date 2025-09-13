@@ -1,20 +1,21 @@
----
+# Examples
 
-## File: `examples/counterfactuals.md`
+Small, copy-pasteable snippets that exercise **Grieg** via the CLI.  
+These examples are designed to be readable on mobile and runnable on a laptop without extra setup.
 
-**Commit message:** `examples: add counterfactuals quick tour (CLI, phases)`
+- ✅ No extra crates needed  
+- ✅ Works with `grieg-cli`  
+- ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
-```markdown
-# Counterfactuals — Quick Tour
+> If you're new here, start with **[counterfactuals.md](./counterfactuals.md)**.
 
-These examples show how **phases** interact with simple expressions using the `grieg-cli`.  
-You can copy each command into a terminal on your laptop (Linux/macOS/WSL).
+## How to run (when at your laptop)
 
----
-
-## 0) Warm-up: MEM transport
-
-**Idea:** enable MEM and use a minimal expression that lands in **MEM**.
+From repo root:
 
 ```bash
+# Build once
+cargo build
+
+# Run a single expression with pretty output and MEM enabled
 cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
