@@ -12,7 +12,7 @@ See **[`examples/`](examples/)** for copy-pasteable CLI snippets, starting with
 - ✅ Works with `grieg-cli`  
 - ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
-> If you're new here, start with **[counterfactuals.md](./counterfactuals.md)**.
+> If you're new here, start with: counterfactuals.md
 
 ## How to run
 
