@@ -9,5 +9,5 @@ serde_json   = { workspace = true }
 grieg-engine = { path = "../grieg-engine" }
 grieg-parser = { path = "../grieg-parser" }
 
-[features]
-emit_geometry = []
+# grieg-cli/Cargo.toml
+grieg-engine = { path = "../grieg-engine", features = ["emit_geometry"] }
