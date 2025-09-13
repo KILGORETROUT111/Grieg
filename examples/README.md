@@ -19,3 +19,8 @@ cargo build
 
 # Run a single expression with pretty output and MEM enabled
 cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
+
+
+### Examples
+See **[`examples/`](examples/)** for copy-pasteable CLI snippets, starting with  
+[`counterfactuals.md`](examples/counterfactuals.md).
