@@ -2,6 +2,9 @@
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
 sensitive semantics and probabilistic / operational views.
 
+> ⚖️ **Verification stance**  
+> Grieg is a demonstrable substrate: phase outcomes (ALIVE, JAM, MEM, VAC) are reproducible at the CLI, with conformance sets and CI serving as live proofs.
+
 # Grieg — Reasoning Engine (Scaffold v2)
 Four-fold phases: ALIVE, JAM, MEM, VAC. Dominance: JAM > MEM > VAC > ALIVE.
 Crates: grieg-engine, grieg-parser, grieg-cli, grieg-proptest.
