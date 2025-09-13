@@ -9,3 +9,7 @@ thiserror = { workspace = true }
 
 [dev-dependencies]
 proptest = { workspace = true }
+
+[features]
+# off by default
+emit_geometry = []
