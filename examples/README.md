@@ -1,6 +1,6 @@
 # Examples
 
-Small, copy-pasteable snippets that exercise **Grieg** via the CLI.  
+Small, copy-pasteable core-blocks that exercise **Grieg** via the CLI.  
 These examples are designed to be readable on mobile and runnable on a laptop without extra setup.
 
 
