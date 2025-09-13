@@ -1,8 +1,10 @@
-true
-false
-true -> false
-~false & (true | false)
-@mem(true -> false)
-@jam(true & true)
-@vac(x)
-(x & true) -> y
+{"expr":"@mem(true -> false)","mem":true,"expect_phase":"MEM","note":"MEM transport happy path"}
+{"expr":"A -> B","mem":false,"expect_phase":"VAC","note":"Unwitnessed identifiers land in VAC"}
+{"expr":"(true -> true) -> true","mem":false,"expect_phase":"ALIVE","note":"Trivial implication; no MEM/VAC/JAM"}
+{"expr":"@mem(A -> B)","mem":true,"expect_phase":"MEM","note":"MEM dominates even with unwitnessed ids"}
+{"expr":"@mem(true)","mem":true,"expect_phase":"MEM","note":"Minimal MEM witness"}
+{"expr":"@mem(true -> false)","mem":false,"expect_phase":"ALIVE","note":"Same expr without --mem should not force MEM"}
+{"expr":"@mem(false -> true)","mem":true,"expect_phase":"MEM","note":"Phase check only; value may vary"}
+{"expr":"(true -> false) -> false","mem":false,"expect_phase":"ALIVE","note":"Implication sink remains ALIVE"}
+{"expr":"C -> (D -> E)","mem":false,"expect_phase":"VAC","note":"Nested unwitnessed → VAC"}
+{"expr":"@mem(C) -> @mem(D)","mem":true,"expect_phase":"MEM","note":"Any MEM involvement dominates overall"}
