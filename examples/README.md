@@ -6,11 +6,11 @@ These examples are designed to be readable on mobile and runnable on a laptop wi
 
 ### Examples
 See examples/ for copy-pasteable CLI snippets, starting with  
-**[counterfactuals.md](examples/counterfactuals.md)**
-
-**[LEE → Grieg Lineage](docs/lineage.md)**
+> See [examples/counterfactuals.md](examples/counterfactuals.md)
 
 
+
+> See [docs/verification.md](docs/verification.md) for details
 
 - ✅ No extra crates needed  
 - ✅ Works with `grieg-cli`  
