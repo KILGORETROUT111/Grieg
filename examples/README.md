@@ -1,14 +1,15 @@
 # Examples
 
-Small, copy-pasteable snippets that exercise **Grieg** via the CLI. These examples are designed to be readable on mobile and runnable on a laptop without extra setup.
+Small, copy-pasteable snippets that exercise **Grieg** via the CLI.  
+These examples are designed to be readable on mobile and runnable on a laptop without extra setup.
 
-- ✅ No extra crates needed
-- ✅ Works with `grieg-cli`
-- ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)
+- ✅ No extra crates needed  
+- ✅ Works with `grieg-cli`  
+- ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
 > If you're new here, start with **[counterfactuals.md](./counterfactuals.md)**.
 
-## How to run
+## How to run (when at your laptop)
 
 From repo root:
 
