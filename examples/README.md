@@ -5,15 +5,13 @@ These examples are designed to be readable on mobile and runnable on a laptop wi
 
 
 ### Examples
-See examples/ for copy-pasteable CLI snippets, starting with  
-> See [examples/counterfactuals.md](examples/counterfactuals.md)
-
+See examples/ for copy-pasteable CLI snippets
 
 - ✅ No extra crates needed  
 - ✅ Works with `grieg-cli`  
 - ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
-> If you're new here, start with examples/counterfactuals.md
+> If you're new here, start with counterfactuals.md
 
 ## How to run
 
