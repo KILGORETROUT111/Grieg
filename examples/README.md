@@ -9,7 +9,7 @@ These examples are designed to be readable on mobile and runnable on a laptop wi
 
 > If you're new here, start with **[counterfactuals.md](./counterfactuals.md)**.
 
-## How to run (when at your laptop)
+## How to run
 
 From repo root:
 
