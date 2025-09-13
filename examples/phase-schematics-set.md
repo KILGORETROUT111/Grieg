@@ -102,6 +102,25 @@ cargo run -p grieg-cli -- --expr '@mem(<EXPR_JAM>)' --mem --pretty
 
 ---
 
+## 7) JAM > VAC — Unwitnessed implication with JAM consequent
+
+**Idea:** Combine an unwitnessed antecedent (would be VAC) with a JAMing consequent; **JAM must dominate**.
+
+```bash
+# A is unwitnessed (would lead to VAC), but consequent triggers JAM
+cargo run -p grieg-cli -- --expr 'A -> <EXPR_JAM>' --pretty
+
+---
+
+## 8) JAM > ALIVE — Trivial ALIVE context with JAM subterm
+
+**Idea:** Put a JAMing subterm into a context that would otherwise be trivially ALIVE; **JAM must dominate**.
+
+```bash
+# Antecedent fails with JAM; overall result is JAM (dominates ALIVE)
+cargo run -p grieg-cli -- --expr '(<EXPR_JAM>) -> true' --pretty
+
+
 ## Notes & Guardrails
 
 - **Phase dominance:** `JAM > MEM > VAC > ALIVE`.  
