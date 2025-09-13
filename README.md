@@ -57,8 +57,6 @@ cargo run -p grieg-cli -- --jsonl docs/samples/expressions.txt --mem --ast
 target/debug/grieg-cli --manifest
 
 # Verification example
-
-```bash
 cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 
 
