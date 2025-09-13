@@ -9,14 +9,11 @@ See examples/ for copy-pasteable CLI snippets, starting with
 > See [examples/counterfactuals.md](examples/counterfactuals.md)
 
 
-
-> See [docs/verification.md](docs/verification.md) for details
-
 - ✅ No extra crates needed  
 - ✅ Works with `grieg-cli`  
 - ✅ Shows **phase** output (ALIVE / JAM / MEM / VAC)  
 
-> If you're new here, start with: counterfactuals.md
+> If you're new here, start with examples/counterfactuals.md
 
 ## How to run
 
