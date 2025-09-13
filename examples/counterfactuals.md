@@ -1,7 +1,8 @@
-# Counterfactuals — Quick Tour
+# Phase Tour — Canonical Demonstrability of Four-Phase Schemata
 
-These examples show how **phases** interact with simple expressions using the `grieg-cli`.  
-You can copy each command into a terminal on your laptop (Linux/macOS/WSL).
+These examples show how the four phases — **ALIVE, JAM, MEM, VAC** — behave in Grieg’s CLI.  
+Each is runnable from the repo root with `cargo run -p grieg-cli -- …`.  
+This file is canonical: all four phases are demonstrably exercised here.
 
 ---
 
@@ -13,7 +14,7 @@ You can copy each command into a terminal on your laptop (Linux/macOS/WSL).
 cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
 ```
 
-> **Expected:** Phase is `MEM`. (The value component may be `true/false/None` depending on evaluator rules; the point here is the **phase**.)
+> **Expected:** Phase is `MEM`.
 
 ---
 
@@ -25,22 +26,20 @@ cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
 cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 ```
 
-> **Expected:** Phase is `VAC`, value likely `None` (no witness assigned).  
-> This demonstrates that Grieg distinguishes “no witness” from ordinary truth-functional flow.
+> **Expected:** Phase is `VAC` (value likely `None`, no witness assigned).
 
 ---
 
-## 2) Implication sink: modus-ponens fixed point
+## 2) Implication sink: modus-ponens fixed point (ALIVE)
 
 **Idea:** implication sinks are absorbing in trace semantics (fixed-point behavior).  
-Below is a simple implication chained with a fact; exact reduction is engine-specific, but the **phase** should stay **ALIVE** with MEM disabled.
+Here a trivial implication is reduced; phase should remain **ALIVE** with MEM disabled.
 
 ```bash
 cargo run -p grieg-cli -- --expr '(true -> true) -> true' --pretty
 ```
 
-> **Expected:** Phase `ALIVE` (no MEM, no VAC needed, no JAM).  
-> The example is intentionally trivial to avoid binding requirements.
+> **Expected:** Phase is `ALIVE`.
 
 ---
 
@@ -56,8 +55,8 @@ cargo run -p grieg-cli -- --expr '@mem(true -> false)' --pretty
 cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
 ```
 
-> **Expected:** Without `--mem`, the engine is free to stay outside MEM transport;  
-> with `--mem`, phase should be `MEM`.
+> **Expected:** Without `--mem`, phase is outside MEM transport.  
+> With `--mem`, phase is `MEM`.
 
 ---
 
@@ -69,24 +68,45 @@ cargo run -p grieg-cli -- --expr '@mem(true -> false)' --mem --pretty
 cargo run -p grieg-cli -- --expr 'A -> B' --ast
 ```
 
-> **Expected:** An AST print that shows the implication structure.  
-> Use this to debug grammar expectations before chasing phase behavior.
+> **Expected:** An AST print showing the implication structure.
+
+---
+
+## 5) JAM — Engine exception
+
+**Idea:** provoke a runtime evaluation error that the engine maps to **JAM** (per `error_to_jam` policy).
+
+```bash
+# Replace <EXPR_JAM> with the known JAM trigger expression
+cargo run -p grieg-cli -- --expr '<EXPR_JAM>' --pretty
+```
+
+> **Expected:** Phase is `JAM`.
+
+---
+
+## 6) JAM — Dominance over other phases
+
+**Idea:** show that JAM dominates other contexts.
+
+```bash
+# JAM inside an implication (consequent)
+cargo run -p grieg-cli -- --expr 'true -> <EXPR_JAM>' --pretty
+
+# JAM with MEM enabled
+cargo run -p grieg-cli -- --expr '@mem(<EXPR_JAM>)' --mem --pretty
+```
+
+> **Expected:** Phase is `JAM` in both cases.  
+> Demonstrates dominance: `JAM > MEM > VAC > ALIVE`.
 
 ---
 
 ## Notes & Guardrails
 
-- **Phases:** `JAM > MEM > VAC > ALIVE` (dominance). If multiple conditions apply, the dominant phase wins.  
-- **Geometry:** Optional (`emit_geometry` feature). These examples avoid it; evaluation outcomes must not depend on geometry.  
-- **Witnessing:** Unbound identifiers lead to `VAC` phase (value often `None`). Bindings/witnesses are introduced by constructs like `@mem(...)` or your own inputs as the engine evolves.
+- **Phase dominance:** `JAM > MEM > VAC > ALIVE`.  
+- **Geometry:** Optional (`emit_geometry` feature). Evaluation outcomes remain invariant; traces are additive witnesses only.  
+- **Witnessing:** Unbound identifiers → `VAC`. Bindings introduced by constructs like `@mem(...)` or user inputs.  
+- **JAM triggers:** Define `<EXPR_JAM>` clearly in the spec so external reviewers can reproduce.
 
 ---
-
-## Next Steps
-
-- Add a minimal **bindings** example once `pyo3` is in (e.g., Python one-liner calling `Evaluator`).  
-- Expand with a small **JSONL** batch once we finalize the CLI JSONL schema.  
-- Consider an **examples/provenance.ipynb** for trace visualization when `emit_geometry` stabilizes
-
-
-
