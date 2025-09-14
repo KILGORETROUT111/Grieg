@@ -24,9 +24,9 @@ Run: cargo run -p grieg-cli -- --expr "@mem(true -> false)" --ast --mem
 
 ## Lineage & Rationale
 - See **[LEE → Grieg Lineage](docs/lineage.md)** (informative).
-- Spec: https://github.com/KILGORETROUT111/Grieg/blob/main/spec/SPEC.md
+- Spec: `spec/SPEC.md`
 - Design ledger: `spec/LEDGER.md`
-- Torwards Provable Substrates & Parallel to Rust Verification: docs/verification.md
+- Torwards Provable Substrates & Parallel to Rust Verification: `docs/VERIFICATION.md`
 
 ## Papers & Funding
 - [Aims (2-page)](docs/aims.md)
