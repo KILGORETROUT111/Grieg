@@ -121,6 +121,17 @@ cargo run -p grieg-cli -- --expr '(<EXPR_JAM>) -> true' --pretty
 
 ---
 
+### Python mirror (optional)
+
+```python
+import grieg
+grieg.expr("@mem(true -> false)", mem=True)   # → MEM
+grieg.expr("A -> B", mem=False)               # → VAC
+grieg.expr("@jam(true)", mem=False)           # → JAM
+
+
+
+
 ## Notes & Guardrails
 
 - **Phase dominance:** `JAM > MEM > VAC > ALIVE`.  
