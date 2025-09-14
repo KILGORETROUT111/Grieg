@@ -1,5 +1,11 @@
 [workspace]
-members = ["grieg-engine", "grieg-parser", "grieg-cli", "grieg-proptest"]
+members = [
+  "grieg-engine",
+  "grieg-parser",
+  "grieg-cli",
+  "grieg-proptest",
+  "grieg-py"        # ← add this line
+]
 resolver = "2"
 
 [workspace.package]

@@ -1,0 +1,15 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "grieg"
+version = "0.1.0"
+description = "Grieg — basis5 / four-fold logic engine (Python binding)"
+authors = [{name="William Alexander Patterson"}]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+]

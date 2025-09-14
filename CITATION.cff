@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "Grieg — basis5 / four-fold logic engine"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Patterson
+    given-names: William Alexander
+repository-code: "https://github.com/KILGORETROUT111/Grieg"
+license: Apache-2.0
+version: "0.2.0"
+keywords:
+  - logic
+  - reasoning
+  - phase semantics
+  - four-fold

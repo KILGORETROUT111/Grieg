@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grieg.dev/schemas/trace-step.json",
+  "title": "Grieg Trace Step",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "op": {
+      "type": "string",
+      "description": "not/and/or/implies/@mem/@jam/@vac"
+    },
+    "pre": {
+      "type": "string",
+      "enum": [
+        "ALIVE",
+        "JAM",
+        "MEM",
+        "VAC"
+      ]
+    },
+    "post": {
+      "type": "string",
+      "enum": [
+        "ALIVE",
+        "JAM",
+        "MEM",
+        "VAC"
+      ]
+    },
+    "sink": {
+      "type": "boolean"
+    },
+    "value": {
+      "description": "Result value at step",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ast": {
+      "type": "string",
+      "description": "Optional s-expression for node"
+    },
+    "theta": {
+      "type": "number",
+      "description": "Optional angular delta (rad)"
+    },
+    "rho": {
+      "type": "number",
+      "description": "Optional radial coordinate [0,1]"
+    },
+    "t": {
+      "type": "number",
+      "description": "Monotone time index (optional)"
+    }
+  },
+  "required": [
+    "op",
+    "pre",
+    "post"
+  ]
+}
