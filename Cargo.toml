@@ -1,23 +1,30 @@
 [workspace]
 members = [
-  "grieg-engine",
-  "grieg-parser",
-  "grieg-cli",
-  "grieg-proptest",
-  "grieg-py"        # ← add this line
+    "grieg-cli",
+    "grieg-engine",
+    "grieg-parser",
+    "grieg-proptest",
+    "grieg-py",
 ]
 resolver = "2"
 
 [workspace.package]
 edition = "2021"
 license = "MIT OR Apache-2.0"
-authors = ["Grieg Engine"]
+authors = [
+    "Grieg Engine",
+]
 version = "0.2.0"
 
 [workspace.dependencies]
 pest = "2.7"
 pest_derive = "2.7"
-serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 thiserror = "1.0"
 proptest = "1.5"
+
+[workspace.dependencies.serde]
+version = "1.0"
+features = [
+    "derive",
+]

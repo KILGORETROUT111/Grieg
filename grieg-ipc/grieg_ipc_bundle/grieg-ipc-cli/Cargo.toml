@@ -1,0 +1,15 @@
+[package]
+name = "grieg-ipc-cli"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "CLI emitting invariant pulse channel (JSONL) for Grieg evals"
+repository = "https://github.com/KILGORETROUT111/Grieg"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+grieg-telemetry = { path = "../grieg-telemetry" }
+grieg-engine = { path = "../grieg-engine" }
+grieg-parser = { path = "../grieg-parser" }
