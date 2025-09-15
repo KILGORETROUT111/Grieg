@@ -2,6 +2,8 @@
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
 sensitive semantics and probabilistic / operational views.
 
+> 🚀 **Quickstart available:** See [README-QUICKSTART.md](README-QUICKSTART.md) to build and run your own Grieg instance immediately.
+
 > ⚖️ **Verification stance**  
 > Grieg is a demonstrable substrate: phase outcomes (ALIVE, JAM, MEM, VAC) are reproducible at the CLI, with conformance sets and CI serving as live proofs.  
 > See [docs/verification.md](docs/verification.md) for details.
