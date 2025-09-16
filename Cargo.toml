@@ -5,6 +5,8 @@ members = [
     "grieg-parser",
     "grieg-proptest",
     "grieg-py",
+    "grieg-ipc/grieg-ipc-cli",
+     "grieg-ipc/grieg-telemetry",    
 ]
 resolver = "2"
 

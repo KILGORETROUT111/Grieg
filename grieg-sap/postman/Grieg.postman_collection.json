@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "Grieg SAP Integration",
+    "_postman_id": "c1f2af64-5b2b-4e5a-9da2-2025-09-14 04:50:34Z",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Evaluate (expr)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8077/eval",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8077",
+          "path": [
+            "eval"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expr\": \"@mem(true -> false)\",\n  \"mem\": true,\n  \"ast\": true,\n  \"pretty\": true\n}"
+        }
+      }
+    }
+  ]
+}
