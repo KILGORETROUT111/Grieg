@@ -301,7 +301,7 @@ Grieg is a **substrate for edge intelligence**:
 * Emits **deterministic JSON/phase traces**
 * Powers both **enterprise workflows** (ERP) and **cybernetic systems** (security, robotics, defense)
 
-📌 For broader endpoint strategy and candidates, see [README-ENDPOINTS.md](../grieg-sap/README-ENDPOINTS.md)
+📌 For broader endpoint strategy and candidates, see [README-ENDPOINTS.md](../grieg-endpoints/README-ENDPOINTS.md)
 
 ```
 ::contentReference[oaicite:0]{index=0}
