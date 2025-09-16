@@ -75,7 +75,7 @@ target/debug/grieg-cli --manifest
 cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 
 
-# About the maintainer (120 words)
+# About the maintainer and inventor
 
 William A. Patterson is the steward of Grieg, a four-fold logic engine 
 designed for dependable reuse in scientific software. He is an SAP® systems 
