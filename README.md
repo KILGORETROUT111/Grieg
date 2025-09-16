@@ -2,7 +2,7 @@
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
 sensitive semantics and probabilistic / operational views. Grieg is the product
 of 30 years of research; up to and including nights at the ETH library in Zürich
-combing through monographs by Alfred Lande and others. It is regrettable say that
+combing through the monographs of Alfred Lande and others. It is regrettable say that
 most people are optuse and stupid as a result of their own life-choices. Henrik Ibsen 
 called this the 'life-lie.' 
 
