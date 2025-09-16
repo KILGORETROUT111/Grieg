@@ -1,0 +1,4 @@
+{"expr":"@mem(sap_ok)","mem":true,"expect_phase":"MEM","note":"IPC layer reachable (mock witness)"}
+{"expr":"sap_unbound","mem":false,"expect_phase":"VAC","note":"Unwitnessed SAP symbol → VAC"}
+{"expr":"@jam(true) -> true","mem":false,"expect_phase":"JAM","note":"JAM dominates over ALIVE"}
+{"expr":"(true -> true) -> @mem(true)","mem":true,"expect_phase":"MEM","note":"MEM dominates ALIVE when witnessed"}
