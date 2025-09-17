@@ -4,7 +4,6 @@ This document introduces Grieg’s interaction layer for SAP-like environments.
 It shows how the reasoning engine can process SAP-style inputs (symbols, transport, JAM dominance)  
 without requiring a live SAP system. This serves as a proof of wiring for researchers and vendors.
 
----
 
 ## 0) TL;DR Quickstart (no SAP backend yet)
 
@@ -25,14 +24,10 @@ Expected output (example):
 Why this matters: the smoke proves wiring & semantics end-to-end
 (JSONL → parser → evaluator → JSON out) without requiring an SAP system.
 
-⸻
-
 1) Scope
 	•	ERP vendors: SAP, Oracle, others. Grieg stays endpoint-agnostic; SAP is chosen as the first mock.
 	•	Government / Defense: Edge telemetry, legal, medical, aerospace.
 	•	Vendors: Cybersecurity, industrial automation, robotics, retail.
-
-⸻
 
 2) IPC / Telemetry link
 
@@ -45,8 +40,6 @@ This builds on grieg-ipc and emits invariant pulse events (basis5-derived):
 
 These events are deterministic, non-interfering, and testable.
 They can be exported as telemetry to monitoring systems.
-
-⸻
 
 3) JSONL Conformance Example
 
@@ -61,22 +54,17 @@ Run:
 
 cargo run -p grieg-cli -- --jsonl conformance/sap-dominance.jsonl --mem --ast
 
-
-⸻
-
 4) Endpoints
 
 This file is part of the broader endpoint strategy: see
 👉 README-ENDPOINTS.md
 
-⸻
 
 5) Math & Logic (MML)
 
 For a formal, verifiable note on phase dominance law and JSONL proofs, see:
 👉 README-MML.md
 
-⸻
 
 6) Appendix — Minimal Expressions for SAP-Like Semantics
 	•	Witnessed MEM:
@@ -90,7 +78,6 @@ sap_unbound → VAC
 
 Use these as building blocks in JSONL tests until SQL/RFC/ODATA adapters are enabled.
 
-⸻
 
 7) One-liner Recap
 
