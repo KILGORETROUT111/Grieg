@@ -81,17 +81,3 @@ cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 
 # About the maintainer and inventor
 
-William A. Patterson is the steward of Grieg, a four-fold logic engine 
-designed for dependable reuse in scientific software. He is an SAP® systems 
-architect with deep ABAP Dictionary expertise who routinely authors both functional 
-and technical RICEFWs and partners directly with ABAP teams. Patterson is comfortable 
-debugging across application, integration, and Basis layers (IDoc, OData/CDS, PI/PO, SLT), 
-and he designs interfaces with operational auditability and provenance in mind—the same 
-discipline visible in Grieg’s phase semantics and trace outputs. A UC Berkeley alumnus 
-who studied with Professor Emeritus Julian C. Boyd, Patterson focuses on turning formal 
-ideas into deployable, maintainable infrastructure. His role on Grieg is hands-on: specs, 
-tests, bindings, and integration playbooks that reduce adoption friction for research groups.
-
-As an SAP systems architect he has lived and worked in ~ 17 countries on three continents.
-
-He is an experienced and PADI licensed (professional) Tec 40, Nitrox, and Rescue Diver. 
