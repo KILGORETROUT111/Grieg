@@ -1,5 +1,3 @@
-Got it. Here’s Part 1 prepared as a Markdown file you can drop directly into the repo as README-BATTLEMAP.md:
-
 # Grieg Adoption Battle Map (Part 1)
 
 This document outlines priority verticals and sequencing for Grieg adoption.  
@@ -76,5 +74,3 @@ Follows once Tier 1 adoption proves viability. They won’t move first but will 
 
 
 ⸻
-
-Do you want me to also wire this into your repo structure now (like /docs/README-BATTLEMAP.md) and stage/push with the same workflow as the SAP and MML docs, or keep it local until Part 2 is ready?
