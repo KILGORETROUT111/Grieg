@@ -4,7 +4,7 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-serde = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 grieg-engine = { path = "../grieg-engine", features = ["emit_geometry"] }
 grieg-parser = { path = "../grieg-parser" }

@@ -1,0 +1,4 @@
+{"expr":"@mem(sap_ok) -> @jam(false)","mem":true,"expect_phase":"JAM","note":"JAM dominates MEM"}
+{"expr":"sap_unbound -> @mem(true)","mem":true,"expect_phase":"MEM","note":"MEM dominates ALIVE; antecedent VAC irrelevant"}
+{"expr":"sap_unbound","mem":false,"expect_phase":"VAC","note":"Unwitnessed SAP symbol → VAC"}
+{"expr":"(true -> true) -> @mem(sap_cached)","mem":true,"expect_phase":"MEM","note":"MEM dominates ALIVE"}

@@ -164,8 +164,26 @@ Restricted to **F** and excluding phase operators, Grieg’s boolean projection 
 
 ---
 
+## Philosophical Stance (Searle: Strong vs Weak AI)
+
+Grieg is explicitly Weak-AI: a tool for simulating and studying reasoning with observable semantics. We reject the Strong-AI claim that a program thereby “understands.” Following Searle’s biological naturalism, syntax ≠ semantics; but operational semantics can still be made empirical for engineers and scientists. 
+
+Concretely, Grieg pairs a classical truth value with a phase: `ALIVE, JAM, MEM, VAC`.
+- JAM marks boundary/contradiction pressure (dominates).
+- MEM handles witness/transport between factual/counterfactual contexts.
+- VAC marks vacuity/absence of witness.
+- ALIVE is ordinary evaluation.
+
+This separation lets pipelines expose edge conditions (not bury them in exceptions), making reasoning auditable, reproducible, and falsifiable. If one seeks richer grounding, Grieg can be embedded with sensors/actuators or domain ontologies; the core remains a small,
+verifiable substrate.
+
+---
+
 ## 8. Licensing
 
 - Engine/runtime: **MIT**.  
 - Documentation/specs: **CC-BY 4.0**.
+
+
+
 

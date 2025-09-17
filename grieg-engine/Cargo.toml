@@ -10,6 +10,6 @@ thiserror = { workspace = true }
 [dev-dependencies]
 proptest = { workspace = true }
 
-# grieg-cli/Cargo.toml
 [features]
 emit_geometry = []
+lam = []

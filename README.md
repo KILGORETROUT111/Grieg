@@ -48,6 +48,18 @@ cargo build
 - Design ledger: `spec/LEDGER.md`
 - Torwards Provable Substrates & Parallel to Rust Verification: `docs/VERIFICATION.md`
 
+## Positioning w.r.t. AI (Searle)
+
+Grieg is Weak-AI in Searle’s sense: a transparent, testable reasoning substrate.  
+We make no Strong-AI claim (no “understanding” by program alone). Instead, Grieg
+renders semantics operational: every evaluation returns a classical value and
+a phase (ALIVE / JAM / MEM / VAC), surfacing edge conditions (unknowns, vacuity,
+boundary failures, witness/memory transport) that most systems hide.
+
+If grounding beyond symbols is desired, embed Grieg in systems with perception/actuation
+or attach domain ontologies. Grieg’s role is to keep the inferential core explicit,
+auditable, and falsifiable.
+
 ## Papers & Funding
 - [Aims (2-page)](docs/aims.md)
 - [Novelty Audit](docs/novelty-audit.md)

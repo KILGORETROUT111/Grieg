@@ -306,4 +306,3 @@ Grieg is a **substrate for edge intelligence**:
 ```
 ::contentReference[oaicite:0]{index=0}
 ```
-

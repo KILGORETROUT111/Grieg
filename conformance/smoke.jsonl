@@ -7,4 +7,4 @@
 {"expr":"@mem(false -> true)","mem":true,"expect_phase":"MEM","note":"Phase check only; value may vary"}
 {"expr":"(true -> false) -> false","mem":false,"expect_phase":"ALIVE","note":"Implication sink remains ALIVE"}
 {"expr":"C -> (D -> E)","mem":false,"expect_phase":"VAC","note":"Nested unwitnessed → VAC"}
-{"expr":"@mem(C) -> @mem(D)","mem":true,"expect_phase":"MEM","note":"Any MEM involvement dominates overall"}
+{"expr":"@mem(true) -> false","mem":true,"expect_phase":"MEM","note":"Any MEM involvement dominates overall"}
