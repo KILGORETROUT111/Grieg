@@ -2165,8 +2165,3 @@ This file is intended to live at:
 grieg-sap/README-MML.md
 ```
 
-and to be used by researchers and integrators as the canonical MML specification for the Grieg SAP integration.
-If you want, I can also create `conformance/sap-dominance.jsonl` in the repo with the exact lines from section 2 — tell me and I'll provide that file content in the same ready-to-paste form.
-
-```
-```
