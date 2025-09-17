@@ -74,9 +74,9 @@ $$
    If multiple triggers apply, the **maximal phase under $\succ$** is chosen.
    Example:
 
-   $$
-   p(@mem(true) \to @jam(false)) = \text{JAM}.
-   $$
+$$
+p(@mem(true) \to @jam(false)) = \text{JAM}.
+$$
 
 3. **ERP Semantics**
 
