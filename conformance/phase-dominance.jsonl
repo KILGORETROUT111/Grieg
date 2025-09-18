@@ -1,0 +1,9 @@
+{"expr":"@jam(true)","mem":false,"expect_phase":"JAM","note":"Direct JAM"}
+{"expr":"@jam(true) -> true","mem":false,"expect_phase":"JAM","note":"JAM > ALIVE (antecedent)"}
+{"expr":"true -> @jam(true)","mem":false,"expect_phase":"JAM","note":"JAM > ALIVE (consequent)"}
+{"expr":"A -> @jam(true)","mem":false,"expect_phase":"JAM","note":"JAM > VAC"}
+{"expr":"@mem(true) -> @jam(false)","mem":true,"expect_phase":"JAM","note":"JAM > MEM (antecedent MEM, consequent JAM)"}
+{"expr":"@jam(true) -> @mem(false)","mem":true,"expect_phase":"JAM","note":"JAM > MEM (antecedent JAM)"}
+{"expr":"@mem(true -> false)","mem":true,"expect_phase":"MEM","note":"Control: witnessed MEM transport"}
+{"expr":"A -> B","mem":false,"expect_phase":"VAC","note":"Control: unwitnessed → VAC"}
+{"expr":"(true -> true) -> true","mem":false,"expect_phase":"ALIVE","note":"Control: trivial ALIVE"}

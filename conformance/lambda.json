@@ -1,0 +1,2 @@
+{"lam":"Y (\\f. \\n. if (iszero n) 1 (mul n (f (pred n)))) 5","fuel":10000,"expect_phase":"ALIVE","note":"factorial 5"}
+{"lam":"Y (\\x. x x)","fuel":1000,"expect_phase":"JAM","note":"divergence via self-application"}

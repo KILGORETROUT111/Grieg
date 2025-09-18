@@ -1,0 +1,12 @@
+[package]
+name = "grieg-ipc-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+grieg-telemetry = { path = "../grieg-telemetry" }
+grieg-engine    = { path = "../../grieg-engine" }
+grieg-parser    = { path = "../../grieg-parser" }
+serde           = { workspace = true, features = ["derive"] }
+serde_json      = { workspace = true }
+chrono          = "0.4"
