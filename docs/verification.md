@@ -332,5 +332,34 @@ Turn geometry off, and outcomes (truth/phase) are identical.
 > Replace names/fields to match your actual engine output; the theorem only needs the qualitative properties (periodic angle, bounded radius, dominance, transport).
 
 
+---
 
+## Addendum — Partial Autonomy and the Coexistence Interval  
+⚠️ *Important: do not skip this section.*  
+
+Grieg’s four phases (ALIVE, JAM, MEM, VAC) do not always collapse immediately.  
+During evaluation, there exists an **interval of coexistence** where multiple phases  
+are simultaneously present as variables, prior to resolution.  
+
+- **Coexistence:** Distinct phases may be simultaneously valid (e.g. MEM transport  
+  alongside VAC on an unwitnessed identifier).  
+- **Autonomy:** These coexisting states are typed and ordered, yet not deterministic.  
+- **Resolution:** Collapse occurs only at **transformational boundaries** (JAM entry,  
+  MEM transport, VAC persistence, ALIVE default).  
+- **Dominance law:** At resolution, the order JAM > MEM > VAC > ALIVE guarantees a  
+  single outcome.  
+- **Efficacy:**  
+  - For researchers: coexistence exposes signal richness, aligned with  
+    uncertainty/relativistic parallels.  
+  - For enterprises: resolution ensures determinism at the interface,  
+    avoiding ad-hoc exception paths.  
+
+This addendum shows that Grieg models **two layers**:  
+1. **Coexistence layer** — phases as parallel variables (informational,  
+   uncertainty-aligned).  
+2. **Resolution layer** — single deterministic outcome (operational,  
+   system-aligned).  
+
+Together, they define Grieg’s unique capacity to balance **uncertainty and rigor**  
+in applied reasoning, across ERP, cybernetics, defense, and beyond.
 
