@@ -3,7 +3,10 @@
 sensitive semantics and probabilistic / operational views. Grieg is the product
 of 30 years of research; up to and including nights at the ETH library in Zürich
 combing through the monographs of Alfred Lande and others. It's a small but notable 
-part of the path to here.
+part of the path to here. It was in the first half-decade of three decades, in 17
+countries, as an SAP Consultant. The designation 'SAP Consultant' is a broad term 
+if you live in that world; broad in that you have to be everything at the same time
+and it has to be true, it cannot shape-shift.
 
 > 🚀 **Quickstart available:** See [README-QUICKSTART.md](README-QUICKSTART.md) to build and run your own Grieg instance immediately.
 
