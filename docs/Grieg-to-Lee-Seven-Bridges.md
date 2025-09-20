@@ -1,8 +1,6 @@
-Here you go—pure copy-paste Markdown.
-
 # LEE → Grieg: Seven Bridges
 
-*A concise, copy-ready mapping from the original Logic Evaluation Engine (LEE) to the Grieg reasoning engine (basis5 / four-fold phase semantics).*
+* A concise, copy-ready mapping from the original Logic Evaluation Engine (LEE) to the Grieg reasoning engine (basis5 / four-fold phase semantics).*
 
 > **Thesis.** Grieg preserves the operational heart of LEE while making two things explicit:  
 > (i) a **four-phase** evaluation channel (ALIVE, JAM, MEM, VAC) with a clear **dominance law**;  
@@ -57,8 +55,8 @@ pub struct TraceStep {
     pub rho:   Option<f64>,      // optional radial coord (if modeled)
 }
 
-Why a torus?
-Empirically, LEE’s winding behavior produced toroidal structure without being pre-programmed. We keep torus as the default visual metaphor because it succinctly captures periodicity + locality and scales well to low/high-dimensional telemetry; when traces are off, evaluation is pure classical + phases.
+> ** Why a torus?
+> ** Empirically, LEE’s winding behavior produced toroidal structure without being pre-programmed. We keep torus as the default visual metaphor because it succinctly captures periodicity + locality and scales well to low/high-dimensional telemetry; when traces are off, evaluation is pure classical + phases.
 
 ⸻
 
