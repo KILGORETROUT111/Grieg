@@ -93,3 +93,10 @@ cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 
 # About the maintainer and inventor
 
+
+## Quality & Review Aids
+
+- **QA Checklist:** [docs/quality/qa-checklist.md](docs/quality/qa-checklist.md)  
+- **QA Positioning:** [docs/quality/qa-positioning.md](docs/quality/qa-positioning.md)
+- **Runbook (Connector):** [docs/quality/runbook-telegram-connector.md](docs/quality/runbook-telegram-connector.md)
+- **Runbook (HTTP Adapter):** [docs/quality/runbook-engine-http-adapter.md](docs/quality/runbook-engine-http-adapter.md)

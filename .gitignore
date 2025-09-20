@@ -2,3 +2,9 @@
 mem.json
 .DS_Store
 **/*.rs.bak
+tools/telegram/lee-grieg-telegram-connector/.env
+tools/telegram/lee-grieg-telegram-connector/bot.pid
+tools/telegram/lee-grieg-telegram-connector/bot.log
+grieg_http.log
+grieg_http.pid
+.venv/
