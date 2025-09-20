@@ -2,7 +2,8 @@
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
 sensitive semantics and probabilistic / operational views. Grieg is the product
 of 30 years of research; up to and including nights at the ETH library in Zürich
-combing through the monographs of Alfred Lande and others, J.A. Wheeler, and others. 
+combing through the monographs of Alfred Lande and others. It's a small but notable 
+part of the path to here.
 
 > 🚀 **Quickstart available:** See [README-QUICKSTART.md](README-QUICKSTART.md) to build and run your own Grieg instance immediately.
 
