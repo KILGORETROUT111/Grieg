@@ -1,0 +1,36 @@
+name: CI (Telegram + QA)
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ feature/telegram-qa ]
+
+jobs:
+  build-rust:
+    name: Build CLI + HTTP adapter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+      - name: Build grieg-cli
+        run: cargo build -p grieg-cli --release
+      - name: Build grieg-http
+        run: cargo build -p grieg-http --release
+
+  qa-docs:
+    name: QA docs present
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check files exist
+        run: |
+          test -f docs/quality/qa-checklist.md
+          test -f docs/quality/qa-positioning.md
+          test -f docs/quality/runbook-telegram-connector.md
+          test -f docs/quality/runbook-engine-http-adapter.md
+      - name: QA gate syntax (no env)
+        run: bash -n docs/quality/qa-gate.sh
