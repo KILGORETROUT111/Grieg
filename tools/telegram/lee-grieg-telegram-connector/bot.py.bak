@@ -1,0 +1,46 @@
+import os, asyncio, httpx
+from telegram.ext import Application, MessageHandler, CommandHandler, filters
+
+BOT = os.environ["TELEGRAM_BOT_TOKEN"]
+URL = os.environ.get("LEE_ENDPOINT", "http://localhost:8000/api/v1/evaluate")
+
+async def cmd_start(u, c):
+    await u.message.reply_text(
+        "GriegEngine bot online.\n\n"
+        "Commands:\n"
+        "/expr <code> [--mem] [--ast]\n"
+        "e.g. /expr @mem(true -> false) --mem\n\n"
+        "Upload a *.jsonl* file with caption /jsonl to run a smoke set."
+    )
+
+async def cmd_expr(u, c):
+    q = u.message.text.partition(' ')[2].strip() or 'ping'
+    try:
+        async with httpx.AsyncClient(timeout=30) as cl:
+            r = await cl.post(URL, json={"prompt": q})
+            r.raise_for_status()
+            d = r.json()
+        text = (d.get("text") if isinstance(d, dict) else None) \
+            or (isinstance(d, dict) and isinstance(d.get("result"), dict) and d["result"].get("text")) \
+            or (d.get("output") if isinstance(d, dict) else None) \
+            or str(d)
+    except Exception as e:
+        text = f"Engine error: {e}"
+    await u.message.reply_text(str(text)[:4000])
+
+async def echo(u, c):
+    await cmd_expr(u, c)
+
+async def main():
+    app = Application.builder().token(BOT).build()
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("expr", cmd_expr))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+    await app.initialize(); await app.start(); await app.updater.start_polling()
+    try:
+        await asyncio.Event().wait()
+    finally:
+        await app.updater.stop(); await app.stop(); await app.shutdown()
+
+if __name__ == "__main__":
+    asyncio.run(main())

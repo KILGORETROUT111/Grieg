@@ -1,0 +1,47 @@
+services:
+  gateway:
+    build: ./services/gateway
+    env_file: .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      - REDIS_URL=${REDIS_URL}
+      - DATABASE_URL=${DATABASE_URL}
+      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+      - AUDIT_SALT=${AUDIT_SALT}
+      - ALLOW_ORIGINS=${ALLOW_ORIGINS}
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  worker:
+    build: ./services/worker
+    env_file: .env
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      - REDIS_URL=${REDIS_URL}
+      - DATABASE_URL=${DATABASE_URL}
+      - AUDIT_SALT=${AUDIT_SALT}
+    command: ["python", "worker.py"]
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: lee
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

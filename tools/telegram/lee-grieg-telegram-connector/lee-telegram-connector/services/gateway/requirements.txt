@@ -1,0 +1,6 @@
+fastapi==0.114.0
+uvicorn==0.30.6
+redis==5.0.8
+pydantic==2.8.2
+python-dotenv==1.0.1
+requests==2.32.3
