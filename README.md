@@ -1,100 +1,104 @@
-* `CONTRACTS_BASIS5.md` is crystal clear: **geometry is the proof, non-negotiable, always emitted**.
-* The current `README.md` (scaffold v2) still talks like geometry is just “phase outcomes” with text and doesn’t anchor itself to the **Basis5 Contract**.
+# Grieg — Reasoning Engine (Scaffold v2)
 
-Here’s how I’d update `README.md` while **keeping the Lineage intact** (since you don’t want that touched), and pulling in the stronger mandate from the contract + verification doc:
+## Basis5 Contract — Self‑Projection Mandate
 
----
+**Grieg** and **LEE** only code what they *self‑project* by **Basis5**. Outputs are not narratives first; they are *derivations* from the engine’s own phase geometry.
 
-# Grieg — Reasoning Engine (Basis5 Contract)
+- **Phase Geometry = Proof (non‑optional).** The fourfold cycle **VAC → ALIVE → JAM → MEM** is the machine’s skeleton. Each run must emit its **deterministic geometry** alongside text.
+- **Material Implication ≡ Phase Geometry (unified).** In Basis5 the “if–then” of material implication is **unpacked/excavated** into phase transitions. Inference is the geometry; geometry is the inference.
+- **Artifacts per run (non‑negotiable):**
+  - `result.json` — machine result (states, transitions, anchors, dominance)
+  - `graph.svg` — deterministic phase graph (same seed ⇒ same graph)
+  - `events.jsonl` — audit trail (provenance, witnesses, contradictions)
+- **Dominance order:** `JAM > MEM > VAC > ALIVE` governs resolution/conflict.
+- **Narration secondary.** Any GPT/LLM layer may describe results, but it **cannot replace or suppress geometry**. If geometry is missing, the run is invalid.
 
-**Four-fold phases:** VAC → ALIVE → JAM → MEM
-**Dominance:** JAM > MEM > VAC > ALIVE
+See **[CONTRACTS_BASIS5.md](docs/CONTRACTS_BASIS5.md)** for the compact, and **[docs/verification.md](docs/verification.md)** for conformance and golden proofs.
 
-Grieg is the operational substrate of the Logic Evaluation Engine (LEE). It implements the **Basis5 Contract**: geometry is not optional; it is the proof. Every run must emit its phase geometry alongside text.
 
-* **Artifacts per run (non-negotiable):**
+Four-fold phases: **ALIVE, JAM, MEM, VAC**.  
+**Dominance:** `JAM > MEM > VAC > ALIVE`.
 
-  * `result.json` (machine)
-  * `graph.svg` (deterministic geometry)
-  * `events.jsonl` (audit log)
-
-See [CONTRACTS\_BASIS5.md](docs/CONTRACTS_BASIS5.md) for the full contract.
-See [docs/verification.md](docs/verification.md) for conformance sets and live proofs.
-
----
+Crates: `grieg-engine`, `grieg-parser`, `grieg-cli`, `grieg-proptest`.
 
 ## Build (Rust)
-
 ```bash
 cargo build
-```
 
-Crates: `grieg-engine`, `grieg-parser`, `grieg-cli`, `grieg-proptest`
+
+# Grieg — Reasoning Engine (Scaffold v2)
+
+Four-fold phases: ALIVE, JAM, MEM, VAC.  
+Dominance: JAM > MEM > VAC > ALIVE.
+
+Crates: `grieg-engine`, `grieg-parser`, `grieg-cli`, `grieg-proptest`.
+
+## Build (Rust)
+```bash
+cargo build
+
+## IP & Trademarks
+- Code: Apache-2.0 (see `LICENSE`).
+- Patent notice: see `spec/SPEC.md` (Provisional details).
+- Trademark: “Grieg” (see `TRADEMARKS.md`).
+- Attribution: see `NOTICE`.
+
+
+## Lineage & Rationale
+- See **[LEE → Grieg Lineage](docs/lineage.md)** (informative).
+- Spec: `spec/SPEC.md`
+- Design ledger: `spec/LEDGER.md`
+- Torwards Provable Substrates & Parallel to Rust Verification: `docs/VERIFICATION.md`
+
+## Positioning w.r.t. AI (Searle)
+
+Grieg is Weak-AI in Searle’s sense: a transparent, testable reasoning substrate.  
+We make no Strong-AI claim (no “understanding” by program alone). Instead, Grieg
+renders semantics operational: every evaluation returns a classical value and
+a phase (ALIVE / JAM / MEM / VAC), surfacing edge conditions (unknowns, vacuity,
+boundary failures, witness/memory transport) that most systems hide.
+
+If grounding beyond symbols is desired, embed Grieg in systems with perception/actuation
+or attach domain ontologies. Grieg’s role is to keep the inferential core explicit,
+auditable, and falsifiable.
+
+## Papers & Funding
+- [Aims (2-page)](docs/aims.md)
+- [Novelty Audit](docs/novelty-audit.md)
+- [Main Paper LaTeX (LaTeX)](docs/grieg-main.tex)
+- [Main Paper PDF (PDF)](docs/grieg-main.pdf)
+- [Whitepaper](docs/Grieg-Whitepaper.md)
 
 ---
 
 ## Quickstart
 
 ```bash
+# Build
+cargo build
+
 # Single expression
-cargo run -p grieg-cli -- --expr 'A -> B' --out outdir/
+cargo run -p grieg-cli -- --expr '@mem(true -> false)' --ast --mem
 
-# Produces:
-#  outdir/result.json
-#  outdir/graph.svg
-#  outdir/events.jsonl
-```
+# REPL
+cargo run -p grieg-cli -- --repl --mem
 
-REPL and JSONL batch modes are available; see [README-QUICKSTART.md](README-QUICKSTART.md).
+# JSONL batch (see samples)
+cargo run -p grieg-cli -- --jsonl docs/samples/expressions.txt --mem --ast
 
----
+# Manifest (version/build info)
+target/debug/grieg-cli --manifest
 
-## Verification Stance
+# Verification example
+cargo run -p grieg-cli -- --expr 'A -> B' --pretty
 
-Grieg is a demonstrable substrate: **phase outcomes and geometry are reproducible at the CLI**.
-Conformance is enforced via schema, golden snapshots, and CI.
-See [docs/verification.md](docs/verification.md).
 
----
+# About the maintainer and inventor
 
-## Positioning w\.r.t. AI
 
-Grieg is **Weak-AI** in Searle’s sense: a transparent, testable reasoning substrate.
-It does not claim “understanding”; it makes inference explicit, auditable, falsifiable.
-Narration is secondary. **Geometry is core.**
+## Quality & Review Aids
 
----
-
-## IP & Lineage
-
-* Code: Apache-2.0 (see `LICENSE`)
-* Patent notice: `spec/SPEC.md` (Provisional details)
-* Trademark: “Grieg” (see `TRADEMARKS.md`)
-* Attribution: `NOTICE`
-
-**Lineage:** 
-
----
-
-## Papers & Documentation
-
-* [Aims](docs/aims.md)
-* [Novelty Audit](docs/novelty-audit.md)
-* [Whitepaper](docs/Grieg-Whitepaper.md)
-* [Main Paper (LaTeX)](docs/grieg-main.tex)
-* [Main Paper (PDF)](docs/grieg-main.pdf)
-
----
-
-## Quality & Runbooks
-
-* QA: [docs/quality/qa-checklist.md](docs/quality/qa-checklist.md)
-* Positioning: [docs/quality/qa-positioning.md](docs/quality/qa-positioning.md)
-* Runbook: [Telegram Connector](docs/quality/runbook-telegram-connector.md)
-* Runbook: [HTTP Adapter](docs/quality/runbook-engine-http-adapter.md)
-
----
-
-✅ The README aligns with **CONTRACTS\_BASIS5.md**: geometry mandatory, artifacts non-negotiable, no “text-only” fudge.
-
-Do you want me to **apply this rewrite directly to your `README.md` file** so you have a clean updated version ready to commit?
+- **QA Checklist:** [docs/quality/qa-checklist.md](docs/quality/qa-checklist.md)  
+- **QA Positioning:** [docs/quality/qa-positioning.md](docs/quality/qa-positioning.md)
+- **Runbook (Connector):** [docs/quality/runbook-telegram-connector.md](docs/quality/runbook-telegram-connector.md)
+- **Runbook (HTTP Adapter):** [docs/quality/runbook-engine-http-adapter.md](docs/quality/runbook-engine-http-adapter.md).
