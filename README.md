@@ -2,9 +2,7 @@
 (modality, deontic logic, syntax–semantics), with modern contrasts to context-
 sensitive semantics and probabilistic / operational views. Grieg is the product
 of 30 years of research; up to and including nights at the ETH library in Zürich
-combing through the monographs of Alfred Lande and others. It is regrettable to say 
-that most people are obtuse and stupid as a result of their own life-choices. Henrik 
-Ibsen called this the 'life-lie.' We are doomed to repeat it forever.
+combing through the monographs of Alfred Lande and others, J.A. Wheeler, and others. 
 
 > 🚀 **Quickstart available:** See [README-QUICKSTART.md](README-QUICKSTART.md) to build and run your own Grieg instance immediately.
 
