@@ -177,3 +177,5 @@ Pointers
 	•	Whitepaper (PDF): docs/grieg-main.pdf
 	•	Lineage: docs/lineage.md
 	•	Security: SECURITY.md (PSIRT: psirt@keemail.me)
+
+If you want this saved under a filename (e.g., `docs/LEE-to-Grieg_Seven-Bridges.md`) just paste it there and commit.
