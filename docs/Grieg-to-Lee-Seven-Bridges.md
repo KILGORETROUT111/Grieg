@@ -43,7 +43,7 @@
 - Geometry emission is **feature-gated**: `emit_geometry`.  
 - When enabled, the engine *emits* structured **trace steps**; **truth results don’t change**.
 
-```rust
+rust
 // feature: emit_geometry
 #[derive(Debug, Clone)]
 pub struct TraceStep {
