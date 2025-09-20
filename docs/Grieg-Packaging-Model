@@ -171,7 +171,7 @@ release: build pack sign
 
 ⸻
 
-TL;DR deliverables I’d add to the repo now
+TL;DR deliverables to add to the repo 
 	•	Justfile above
 	•	docs/updates.md (customer playbook)
 	•	pack/manifest.toml.sample
@@ -179,4 +179,4 @@ TL;DR deliverables I’d add to the repo now
 	•	docs/advisories/GA-YYYY-MM-XX-###.md (first sample)
 	•	sbom/ + signatures/ folders (empty placeholders ok)
 
-This gives you SAP-grade delivery discipline—but lean, cryptographically verifiable, and easy for research teams to adopt. If you want, I can also draft the grieg-cli update subcommands (arg/behavior stubs) next.
+This gives SAP-grade delivery discipline—but lean, cryptographically verifiable, and easy for research teams to adopt. If you want, I can also draft the grieg-cli update subcommands (arg/behavior stubs) next.
