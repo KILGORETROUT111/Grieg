@@ -63,6 +63,10 @@ Empirically, LEE’s winding behavior produced toroidal structure without being 
 ⸻
 
 ## Bridge 4 — Parser/AST (small & explicit)
+ 
+Bridge 4 — Parser/AST (small & explicit)
+
+
 
 - Grieg keeps a compact grammar; example:
 
