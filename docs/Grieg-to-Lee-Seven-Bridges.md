@@ -1,6 +1,6 @@
 # LEE → Grieg: Seven Bridges
 
-* A concise, copy-ready mapping from the original Logic Evaluation Engine (LEE) to the Grieg reasoning engine (basis5 / four-fold phase semantics).*
+*A concise, copy-ready mapping from the original Logic Evaluation Engine (LEE) to the Grieg reasoning engine (basis5 / four-fold phase semantics).*
 
 > **Thesis.** Grieg preserves the operational heart of LEE while making two things explicit:  
 > (i) a **four-phase** evaluation channel (ALIVE, JAM, MEM, VAC) with a clear **dominance law**;  
@@ -43,7 +43,7 @@
 - Geometry emission is **feature-gated**: `emit_geometry`.  
 - When enabled, the engine *emits* structured **trace steps**; **truth results don’t change**.
 
-'' rust
+```rust
 // feature: emit_geometry
 #[derive(Debug, Clone)]
 pub struct TraceStep {
