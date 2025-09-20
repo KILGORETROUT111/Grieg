@@ -162,6 +162,7 @@ grieg-engine = { path = "../grieg-engine", features = ["emit_geometry"] }
 
 ⸻
 
+
 Notes for Reviewers
 	•	Conservativity: With geometry disabled, Grieg behaves classically, exposing phases only.
 	•	Why phases? Real systems need “witness present?”, “boundary hit?”, “vacuous pass?”. Phases make those questions typed and testable.
