@@ -1,0 +1,182 @@
+Got it — you want Grieg delivered like SAP does software: predictable bundles, signed, reversible, and with “Notes” + cumulative packs. Here’s a turnkey packaging model you can drop into the repo today.
+
+Grieg Packaging Model (SAP-style)
+
+0) Release lanes & versions
+	•	Channels: lts (stable), main (current), edge (pre-release).
+	•	SemVer: MAJOR.MINOR.PATCH
+	•	MAJOR: breaking API/trace format
+	•	MINOR: features, compatible
+	•	PATCH: bug/security fixes only
+
+1) Artifacts we ship per release
+	•	Binaries: grieg-cli for linux-x64 (glibc & musl), win-x64, macos-universal (zip/tar.gz)
+	•	Container: ghcr.io/<org>/grieg:<version> (+ :lts, :latest)
+	•	Language adapters (optional):
+	•	Python wheel griegpy (manylinux, macOS, Windows)
+	•	Node addon @grieg/engine
+	•	SBOM + sigs: SPDX or CycloneDX + cosign signatures
+	•	Packs: Grieg Support Bundle (GSB) — cumulative rollup
+	•	Transports: Grieg Transport (GT) — the smallest delta (like an SAP Transport)
+
+2) The pack format (.griegpack)
+
+Ship both GSB (cumulative) and GT (delta). They’re just zip files with a strict manifest.
+
+grieg-<version>-<channel>.griegpack
+└── manifest.toml
+└── notes/
+   └── GA-2025-09-17-001.md          # “Grieg Advisory” (like SAP Note)
+└── bin/
+   └── linux-x64/grieg-cli
+   └── macos-universal/grieg-cli
+   └── win-x64/grieg-cli.exe
+└── schemas/
+   └── trace-v2.schema.json
+└── migrations/
+   └── 2025-09-17_memdb_v1_to_v2.rs  # optional, compile/run by CLI
+└── conformance/
+   └── smoke.jsonl
+└── signatures/
+   └── cosign.sig
+└── sbom/
+   └── grieg-<version>.spdx.json
+
+manifest.toml (example)
+
+[package]
+name = "grieg"
+version = "0.4.2"
+channel = "lts"         # lts | main | edge
+kind = "GSB"            # GSB (cumulative) | GT (delta)
+created_utc = "2025-09-17T10:13:00Z"
+
+[compat]
+min_cli = "0.4.0"
+min_engine = "0.4.0"
+trace_schema = "2"
+memdb_schema = "1->2"   # migration included
+
+[contents]
+binaries = ["linux-x64", "macos-universal", "win-x64"]
+adapters = ["python"]
+notes = ["GA-2025-09-17-001.md"]
+migrations = ["2025-09-17_memdb_v1_to_v2.rs"]
+
+[hashes]
+sha256_bin_linux_x64 = "<…>"
+sha256_pack = "<…>"
+
+[signing]
+cosign = true
+
+3) Update workflow (customer’s Basis-style)
+
+Pre-check / plan
+
+grieg-cli update plan \
+  --pack grieg-0.4.2-lts.griegpack \
+  --check-compat --check-sig --dry-run
+
+	•	Verifies signature, SBOM, version matrix, and that any mem-db or trace schema migration is available.
+
+Apply
+
+grieg-cli update apply \
+  --pack grieg-0.4.2-lts.griegpack \
+  --backup /var/backups/grieg_$(date +%F) \
+  --run-conformance conformance/smoke.jsonl
+
+	•	Installs the binary, runs migrations, executes smoke.jsonl, and prints an Advisory digest from notes/.
+
+Rollback (auto)
+
+grieg-cli update rollback --from-backup /var/backups/grieg_2025-09-17
+
+4) “SAP-like” mapping (cheat sheet)
+
+SAP concept	Grieg equivalent
+Transport Request (TR)	GT (Grieg Transport, delta pack)
+Support Package (SP)	GSB (Support Bundle, cumulative)
+Support Stack (SPS)	Sequence of GSB releases
+SAP Note	Grieg Advisory (GA) in /notes
+Maintenance Planner/SUM	grieg-cli update plan/apply/rollback
+SPDD/SPAU (mods)	Local adapters/overrides; merge prompts
+
+5) “Grieg Advisory” (GA) template
+
+# GA-2025-09-17-001 — Trace schema v2 introduced
+**Severity:** Low (incompatible only if you parse raw traces)
+
+**Impact:** Trace JSON gains `phase_flow[]`. CLI output unchanged.
+**Mitigation:** Use supplied `trace-v2.schema.json` or the provided
+compat flag: `--emit-trace v1`.
+
+**Fix version:** 0.4.2 (this bundle)
+
+6) Justfile (local pack build)
+
+Drop this at repo root:
+
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+
+VERSION := `grep '^version' grieg-cli/Cargo.toml | awk -F\" '{print $2}'`
+CHANNEL := "lts"      # or main/edge
+
+build:
+	cargo build --release -p grieg-cli
+	cargo build --release -p grieg-cli --target x86_64-unknown-linux-musl
+
+pack:
+	rm -rf dist && mkdir -p dist/{bin,notes,schemas,migrations,conformance,sbom,signatures}
+	# binaries
+	cp target/release/grieg-cli dist/bin/macos-universal || true
+	cp target/x86_64-unknown-linux-musl/release/grieg-cli dist/bin/linux-x64 || true
+	# windows cross if available; else CI fills it
+	# schemas/notes/migrations/sbom/signatures (as applicable)
+	cp conformance/smoke.jsonl dist/conformance/
+	# manifest
+	cat > dist/manifest.toml <<EOF
+[package]
+name = "grieg"
+version = "${VERSION}"
+channel = "${CHANNEL}"
+kind = "GSB"
+created_utc = "$(date -u +%FT%TZ)"
+[compat]
+min_cli = "0.4.0"
+trace_schema = "2"
+memdb_schema = "1->2"
+EOF
+	# zip
+	(cd dist && zip -r "../grieg-${VERSION}-${CHANNEL}.griegpack" .)
+
+sign:
+	cosign sign-blob --yes --output-signature dist/signatures/cosign.sig \
+		grieg-${VERSION}-${CHANNEL}.griegpack
+
+release: build pack sign
+	@echo "Pack ready: grieg-${VERSION}-${CHANNEL}.griegpack"
+
+7) Customer install playbook (README-style)
+	1.	Download the .griegpack + cosign.pub (public key).
+	2.	Plan: grieg-cli update plan --pack <file> --check-compat --check-sig
+	3.	Apply: grieg-cli update apply --pack <file> --run-conformance conformance/smoke.jsonl
+	4.	Rollback: grieg-cli update rollback --from-backup <dir>
+
+8) Security & provenance
+	•	Sign packs with cosign; publish SBOM (SPDX/CycloneDX).
+	•	Keep a public Advisories folder in the repo and link each GA to the release tag.
+	•	Optional: publish packs to a dedicated Artifacts bucket + attach to GitHub Releases.
+
+⸻
+
+TL;DR deliverables I’d add to the repo now
+	•	Justfile above
+	•	docs/updates.md (customer playbook)
+	•	pack/manifest.toml.sample
+	•	conformance/smoke.jsonl (already present—ensure it runs)
+	•	docs/advisories/GA-YYYY-MM-XX-###.md (first sample)
+	•	sbom/ + signatures/ folders (empty placeholders ok)
+
+This gives you SAP-grade delivery discipline—but lean, cryptographically verifiable, and easy for research teams to adopt. If you want, I can also draft the grieg-cli update subcommands (arg/behavior stubs) next.
