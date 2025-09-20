@@ -63,7 +63,8 @@ Empirically, LEE’s winding behavior produced toroidal structure without being 
 ⸻
 
 ## Bridge 4 — Parser/AST (small & explicit)
-	•	Grieg keeps a compact grammar; example:
+
+- Grieg keeps a compact grammar; example:
 
 expr  = implication ;
 implication = disjunction ( "->" disjunction )* ;
@@ -74,7 +75,7 @@ unary = "@" ident "(" expr ")"
       | ident
       | "true" | "false" ;
 
-	•	Phase operators are lexical (@mem, @jam, @vac, @alive).
+- Phase operators are lexical (@mem, @jam, @vac, @alive).
 
 ⸻
 
@@ -116,8 +117,9 @@ grieg-cli --expr 'p' --mem --mem-db mem.json --pretty
 ⸻
 
 ## Bridge 6 — Verification & Conformance
-	•	Executable semantics: every run yields (value, phase); reviewers can see edge states.
-	•	Smoke/conformance via JSONL:
+
+- Executable semantics: every run yields (value, phase); reviewers can see edge states.
+- Smoke/conformance via JSONL:
 
 {"expr":"true","want_phase":"ALIVE","want_bool":true}
 {"expr":"false","want_phase":"ALIVE","want_bool":false}
