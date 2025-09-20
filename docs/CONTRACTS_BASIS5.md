@@ -1,4 +1,4 @@
-# BASIS5 CONTRACT — GEOMETRY-AS-TRUTH (NON-NEGOTIABLE)
+# BASIS5 CONTRACT — (PHASE)-GEOMETRY-AS-TRUTH (NON-NEGOTIABLE)
 
 **Principle:** In Grieg/LEE, **geometry is the proof**. Text is narration.
 **Contract:** Every evaluation MUST self-project Basis5 geometry and ship it alongside text. No geometry → not a valid run.
@@ -255,5 +255,6 @@ bot.send_document(chat_id, open(graph_path, "rb"), caption=summary[:1024])
 ---
 
  `docs/CONTRACT_BASIS5.md`
+
 
 
