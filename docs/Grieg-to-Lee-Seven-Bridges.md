@@ -62,13 +62,8 @@ Empirically, LEE’s winding behavior produced toroidal structure without being 
 
 ⸻
 
-## Bridge 4 — Parser/AST (small & explicit)
- 
 Bridge 4 — Parser/AST (small & explicit)
-
-
-
-- Grieg keeps a compact grammar; example:
+	•	Grieg keeps a compact grammar; example:
 
 expr  = implication ;
 implication = disjunction ( "->" disjunction )* ;
@@ -79,11 +74,11 @@ unary = "@" ident "(" expr ")"
       | ident
       | "true" | "false" ;
 
-- Phase operators are lexical (@mem, @jam, @vac, @alive).
+	•	Phase operators are lexical (@mem, @jam, @vac, @alive).
 
 ⸻
 
-## Bridge 5 — Engine API (Evaluator) & CLI
+Bridge 5 — Engine API (Evaluator) & CLI
 
 Rust (library)
 
@@ -120,10 +115,9 @@ grieg-cli --expr 'p' --mem --mem-db mem.json --pretty
 
 ⸻
 
-## Bridge 6 — Verification & Conformance
-
-- Executable semantics: every run yields (value, phase); reviewers can see edge states.
-- Smoke/conformance via JSONL:
+Bridge 6 — Verification & Conformance
+	•	Executable semantics: every run yields (value, phase); reviewers can see edge states.
+	•	Smoke/conformance via JSONL:
 
 {"expr":"true","want_phase":"ALIVE","want_bool":true}
 {"expr":"false","want_phase":"ALIVE","want_bool":false}
@@ -142,7 +136,7 @@ grieg-cli --jsonl conformance/smoke.jsonl --mem --pretty
 
 ⸻
 
-## Bridge 7 — Sustainability & Interfaces
+Bridge 7 — Sustainability & Interfaces
 	•	Language bindings (planned): Python first, then JS/Node.
 	•	Adapters: CSV/JMESPath for data checks; event telemetry source (dive computer, lab instruments).
 	•	Security: SECURITY.md, PSIRT contact psirt@keemail.me.
@@ -183,3 +177,5 @@ Pointers
 	•	Whitepaper (PDF): docs/grieg-main.pdf
 	•	Lineage: docs/lineage.md
 	•	Security: SECURITY.md (PSIRT: psirt@keemail.me)
+
+ 
