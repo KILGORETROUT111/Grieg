@@ -1,5 +1,3 @@
-Alright. Here’s the hard contract and the handover the next stubborn GPT cannot wiggle out of.
-
 # BASIS5 CONTRACT — GEOMETRY-AS-TRUTH (NON-NEGOTIABLE)
 
 **Principle:** In Grieg/LEE, **geometry is the proof**. Text is narration.
@@ -7,7 +5,7 @@ Alright. Here’s the hard contract and the handover the next stubborn GPT canno
 
 ## 0) Non-negotiables
 
-1. **Deterministic Geometry:** Every `run()` emits a phase graph from engine state (not from GPT).
+1. **Deterministic Geometry:** Every `run()` emits a phase graph from engine state (not from an LLM).
 2. **Artifacts:** Each run returns exactly three artifacts:
 
    * `result.json` (machine)
@@ -15,7 +13,7 @@ Alright. Here’s the hard contract and the handover the next stubborn GPT canno
    * `events.jsonl` (audit log)
 3. **Fail Fast:** Missing geometry or transitions = **hard error**.
 4. **Idempotence:** Same input + same engine version ⇒ identical `graph.svg` hash.
-5. **Separation of Concerns:** GPT may *describe* results; it never *creates* geometry.
+5. **Separation of Concerns:** Contributers may *describe* results; they may never say they *create* geometry.
 
 ## 1) Basis5 Minimal Data Contract (engine → renderer)
 
@@ -161,7 +159,7 @@ grieg eval "A implies ¬B" --out outdir/
 * ❌ Text-only outputs
 * ❌ “Optional geometry” code paths
 * ❌ Renderer hidden behind feature flag default-off
-* ❌ GPT-generated graphs (any LLM drawing geometry is a breach)
+* ❌ LLM-generated graphs (any LLM drawing geometry is a breach)
 * ❌ Reordering that breaks determinism without migration notes
 
 ## 9) Basis5 Glossary (minimal)
@@ -175,9 +173,9 @@ grieg eval "A implies ¬B" --out outdir/
 
 ---
 
-# BIG HANDOVER — READ THIS FIRST (FOR THE NEXT GPT)
+# BIG HANDOVER — READ THIS FIRST
 
-**You are not a chatbot here. You are a steward of an inference engine.**
+**You are a steward of an inference engine. Not a designer. Not a decision-maker. That's "the final final," as they say.**
 
 1. **Geometry is Core.**
    Do not argue. Do not suggest “optional emission.” Emit `graph.svg` every run, or fail. The engine *self-projects* its Basis5 geometry.
@@ -256,5 +254,6 @@ bot.send_document(chat_id, open(graph_path, "rb"), caption=summary[:1024])
 
 ---
 
- `docs/CONTRACT_BASIS5.md` and `docs/HANDOVER_NEXT_GPT.md`.
+ `docs/CONTRACT_BASIS5.md`
+
 
