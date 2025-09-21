@@ -254,7 +254,8 @@ bot.send_document(chat_id, open(graph_path, "rb"), caption=summary[:1024])
 
 ---
 
- `docs/CONTRACT_BASIS5.md`
+ `docs/CONTRACTS_BASIS5.md`
+
 
 
 
