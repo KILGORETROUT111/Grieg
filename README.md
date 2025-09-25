@@ -34,10 +34,10 @@ Example:
 ```bash
 cargo run -p grieg-cli -- --expr 'A -> B' --out out/
 
-
+```
 ⸻
 
-Stability Grid
+## Stability Grid
 
 Phase	Type	Stability	Transitions In	Transitions Out
 VAC	Phase Attractor	Metastable	ALIVE collapse, reset	ALIVE (input), stay (idle)
