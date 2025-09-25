@@ -55,7 +55,7 @@ cargo run -p grieg-cli -- --expr 'A -> B' --out out/
 - 📄 [docs/phase_geometry.md](docs/phase_geometry.md) – phase topology and attractors.  To-Do List (simplifying the big mathematics)
 - 📄 [docs/sink.md](docs/sink.md) – definition of terminal absorbing state.  To-Do List
 - 📄 [docs/lineage.md](docs/lineage.md) – history (LEE → Grieg).  
-- 📄 [docs/CONTRACTS_BASIS5.md] - CONTRACTS_BASIS5.md) – license terms.  
+- 📄 [docs/CONTRACTS_BASIS5.md](docs/CONTRACTS_BASIS5.md) - license terms.  
 
 Each document is written to be **machine- and human-verifiable**.  
 Outputs are cross-checked against golden runs (`/grieg-qa/`).  
