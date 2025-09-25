@@ -53,7 +53,7 @@ cargo run -p grieg-cli -- --expr 'A -> B' --out out/
 
 - 📄 [docs/verification.md](docs/verification.md) – reproducibility and golden tests.  
 - 📄 [docs/phase_geometry.md](docs/phase_geometry.md) – phase topology and attractors.  
-- 📄 [docs/sink.md](docs/sink.md) – definition of terminal absorbing state.  
+- 📄 [docs/sink.md](docs/sink.md) – definition of terminal absorbing state.  To-Do List
 - 📄 [docs/lineage.md](docs/lineage.md) – history (LEE → Grieg).  
 - 📄 [CONTRACTS_BASIS5.md](CONTRACTS_BASIS5.md) – license terms.  
 
