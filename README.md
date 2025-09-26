@@ -97,3 +97,42 @@ Grieg and LEE both embody the same mandate:
 ## License
 
 See `CONTRACTS_BASIS5.md` for project license terms.  
+
+
+# How Grieg Differs
+
+Grieg is not another inference engine in the lineage of MYCIN/EMYCIN or modern ML frameworks.  
+It departs from both rule-based expert systems and probabilistic/connectionist models in several fundamental ways:
+
+## 1. Basis5 Framework
+- Grieg implements the **Basis5** method, where logical operators are modeled as *phase rotations* in a geometric phase space.  
+- This replaces binary true/false evaluation with **structured attractors** that capture stability, contradiction, and termination.  
+- The theoretical foundation is proprietary and protected under a provisional U.S. patent.
+
+## 2. Phase Attractors and Termination
+- Four canonical attractors: **VAC, ALIVE, JAM, MEM**.  
+- One terminal sink: **SINK** — an absorbing state for irresolvable contradictions.  
+- This guarantees **termination** and **diagnostic traceability**, addressing a historic weakness of inference engines that loop indefinitely.
+
+## 3. Machine-Verifiable Artifacts
+- Every evaluation emits:  
+  - `result.json` — structured outcome bundle  
+  - `events.jsonl` — stepwise transition log  
+  - `graph.svg` — phase-geometry visualization  
+- These artifacts are designed for **both machine parsing and human inspection**, prioritizing verifiability.
+
+## 4. Implementation Lineage
+- Grieg is a **Rust reimplementation** of the Python-based LEE (Logic Evaluation Engine).  
+- Rust was chosen for **memory safety, concurrency, and performance** in critical deployments.  
+- Unlike Rust ML toolchains (e.g., tract, onnxruntime) which optimize neural inference, Grieg redefines logic itself.
+
+## 5. Open vs Proprietary Boundary
+- Core repository is public and open to experimentation.  
+- **Basis5 method** remains proprietary under patent protection.  
+- Research use is permitted; **commercial deployment requires licensing**.
+
+---
+
+Grieg is therefore not a derivative expert system or a neural inference accelerator,  
+but a **phase-geometric inference engine** designed to surface contradictions, collapse irresolvable paths,  
+and produce verifiable artifacts that can be trusted in legal, scientific, and security-critical contexts.
