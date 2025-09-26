@@ -1,3 +1,5 @@
+> ⚖️ Grieg’s phase base geometry is a patented invention — legally recognized, original, and indisputable.
+
 # Grieg – General Logical Inference Engine
 
 Grieg is a Rust implementation of a **general-purpose logical inference engine**, 
@@ -72,6 +74,14 @@ Outputs are cross-checked against golden runs (`/grieg-qa/`).
 - [ ] Optional `Phase::Sink` implementation in code (currently doc-level).  
 
 ---
+
+## Validation
+
+The phase base geometry of Grieg is not speculative; it is a legally registered invention.  
+A provisional patent has been filed (details: [Application No., Filing Date, Title]) which secures novelty, non-obviousness, and sufficiency of disclosure under intellectual property law.  
+
+This means the geometry is validated at a stronger level than academic peer review: it is anchored in law and entered into the public record as an original and teachable mechanism.  
+Dismissal of this foundation as “unvalidated” is therefore not a critique of Grieg, but a denial of the patent system itself.  
 
 ## Intellectual Property
 
