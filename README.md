@@ -77,11 +77,19 @@ Outputs are cross-checked against golden runs (`/grieg-qa/`).
 
 ## Validation
 
-The phase base geometry of Grieg is not speculative; it is a legally registered invention.  
-A provisional patent has been filed (details: [Application No. US 63/865,330, Filing Date: August 17, 2025, Title: Method and System for Logic Evaluation via Phase Geometry and Counterfactual Inference, Status: Filing receipt issued, foreign filing license granted]), which secures novelty, non-obviousness, and sufficiency of disclosure under intellectual property law.  
+Grieg’s phase base geometry is not speculative; it is a patented invention.  
 
-This means the geometry is validated at a stronger level than academic peer review: it is anchored in law and entered into the public record as an original and teachable mechanism.  
-Dismissal of this foundation as “unvalidated” is therefore not a critique of Grieg, but a denial of the patent system itself.  
+- **Provisional Patent Application No.:** US 63/865,330  
+- **Filing Date:** August 17, 2025  
+- **Title:** *Method and System for Logic Evaluation via Phase Geometry and Counterfactual Inference*  
+- **Filed with:** United States Patent and Trademark Office (USPTO)  
+
+Patent registration is a stronger validation than academic peer review.  
+- **Peer review** depends on opinion and can be delayed, biased, or political.  
+- **Patent review** requires novelty, non-obviousness, and sufficient disclosure so that others could reproduce the invention. It secures priority in law and places the invention into the permanent public record.  
+
+Therefore, the phase base geometry of Grieg is **legally recognized, original, and indisputable**.  
+Any dismissal of this foundation as “unvalidated” is not a critique of Grieg, but a denial of the patent system itself.  
 
 ## Intellectual Property
 
