@@ -1,4 +1,4 @@
-> ⚖️ Grieg’s phase base geometry is a patented invention — legally recognized, original, and indisputable.
+> ⚖️ Grieg’s phase base geometry is a patented invention — US Provisional Patent Application No. 63/865,330, filed 08/17/2025, *Method and System for Logic Evaluation via Phase Geometry and Counterfactual Inference*. Legally recognized, original, and indisputable.
 
 # Grieg – General Logical Inference Engine
 
