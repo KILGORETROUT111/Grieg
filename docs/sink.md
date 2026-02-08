@@ -1,5 +1,17 @@
 # sink.md
 
+> Status: active  
+> Location: /docs  
+> Edit policy: open to review
+
+This document is part of Grieg’s core conceptual surface.  
+It is expected to evolve through careful revision rather than replacement.
+
+Edits are encouraged where they increase clarity, precision, or testability.  
+Reductions in scope or substance are out of bounds.
+
+---
+
 ## Definition: Terminal Absorbing State
 
 In Grieg, a **terminal absorbing state** is a state of evaluation from which no further logical transformation produces new information.
@@ -14,7 +26,7 @@ A state is terminal and absorbing when:
 
 Once reached, the state is **absorbing**: subsequent inputs mapped to the same equivalence class collapse into this state without altering its metrics.
 
-The terminal absorbing state does **not** assert truth.
+The terminal absorbing state does **not** assert truth.  
 It asserts **evaluative exhaustion**.
 
 ---
@@ -32,6 +44,9 @@ A terminal absorbing state marks the point at which further linguistic variation
 ---
 
 ## To-Do List
+
+This list reflects open work rather than deficiencies.  
+Items may be clarified, subdivided, or reordered, but not removed without replacement.
 
 ### Conceptual
 - Formalize criteria for evaluative convergence.
@@ -67,3 +82,17 @@ A terminal absorbing state marks the point at which further linguistic variation
 - Resolving ambiguity beyond evaluative exhaustion.
 
 The terminal absorbing state is a stopping condition, not a verdict.
+
+---
+
+## Notes for Reviewers
+
+This document is intended to be read literally.
+
+If a term feels underspecified, the preferred response is to:
+- suggest a sharper definition, or
+- propose an explicit constraint.
+
+If a sentence appears unnecessary, assume it is load-bearing until proven otherwise.
+
+Questions, counterexamples, and boundary cases are welcome when recorded directly in text.
